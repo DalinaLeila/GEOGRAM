@@ -1,24 +1,27 @@
-<h1>Step 2 - Add task</h2>
+<h1>Step 2 - Add task
+  </h2>
 
-<form action="/creator/add-task/{{this.id}}" method="post">
+  <form action="/creator/add-task/{{this.id}}" method="post">
 
-<input type="text" name="title>
-<input type="text" name="location">
+    <label for="title">Task Title:</label>
+    <input type="text" name="title">
+    <label for="location">Location:</label>
 
-<select name="taskType">
-  <option value="text" selected>Text</option>
-  <option value="photo">Photo</option>
-  <option value="video">Video</option>
-  <option value="audio">Audio</option>
-</select>
+    <input type="text" name="location">
 
 
-<textarea rows="4" cols="50" name="description">
+    <select name="taskType">
+      <option value="text" selected>Text</option>
+      <option value="photo">Photo</option>
+      <option value="video">Video</option>
+      <option value="audio">Audio</option>
+    </select>
+
+
+    <textarea rows="4" cols="50" name="description">
 Put your game description here.
 </textarea>
 
-<button type="submit">Save</button>
-<a href="/creator/tasks-overview/{{this.id}}"><button>Cancel</button></a>
-</form>
-
-
+    <button type="submit">Save</button>
+    <a href="/creator/tasks-overview/{{this.id}}"><button>Cancel</button></a>
+  </form>
