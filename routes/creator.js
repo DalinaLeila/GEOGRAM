@@ -64,7 +64,9 @@ creator.post("/:id/add-task", (req, res, next) => {
           });
         })
         .then(result =>
-          res.render("creator/tasks-overview", { id: id, tasks: tasks })
+          res.render("creator/tasks-overview", { 
+            gameId: id, 
+            tasks: tasks })
         )
         .catch(err => console.error(err));
     })
@@ -79,5 +81,7 @@ creator.get("/:id/tasks-overview", (req, res, next) => {
     res.render("creator/tasks-overview", { game });
   });
 });
+
+creator.get("/:id/")
 
 module.exports = creator;
