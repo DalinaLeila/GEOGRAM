@@ -59,7 +59,7 @@ authRoutes.post('/signup', (req, res, next) => {
                 res.render('auth/signup', { message: 'Something went wrong' })
                 console.log(err)
             } else {
-                res.redirect('/')
+                res.redirect('/auth/login')
             }
         })
     })
