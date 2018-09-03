@@ -86,6 +86,6 @@ const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
 const creator = require("./routes/creator");
-app.use("/creator", index);
+app.use("/creator", creator);
 
 module.exports = app;
