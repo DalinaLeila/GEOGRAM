@@ -6,16 +6,16 @@ const gameSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true,
     },
+    title: {
+        type: String,
+        required: true,
+    },
     tasks: [Schema.Types.ObjectId],
     private: {
         type: boolean,
         required: true
     },
-    code: String,
-    area: {
-        type: String,
-        enum: ["building", "street"]
-    },
+    description: String,
     rating: {
         type: Number,
         min: 1,
