@@ -2,6 +2,7 @@ const express = require("express");
 const creator = express.Router();
 const User = require("../models/User");
 const Game = require("../models/Game");
+const Game = require("../models/Task");
 
 
 creator.get("/creator-overview", (req, res, next) => {
@@ -24,12 +25,36 @@ creator.post("/game-details", (req, res, next) => {
         private: private,
         description: description,
     }).save().then(
-    game=>{
-        res.render("creator/tasks-overview", {game})
-    });
+        game => {
+            res.render("creator/tasks-overview", { game })
+        });
+})
+
+creator.get("/add-task/:id", (req, res, next) => {
+    let id = req.params.id;
+    res.render("creator/add-task", {id});
+})
 
 
+creator.post("/add-task/:id", (req, res, next) => {
+    let id = req.params.id;
+    const { title,
+        location,
+        taskType,
+        description } = req.body
 
+    const task = new Task({
+        title: title,
+        taskType: taskType,
+        description: description,
+        location: location
+    }).save().then(
+        task => {
+            Game.findByIdAndUpdate(id, {$push: { tasks: task._id}}).then(game=>{
+                res.render("creator/tasks-overview", { game })
+            })
+            
+        });
 })
 
 

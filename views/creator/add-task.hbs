@@ -2,9 +2,10 @@
 
 <form action="/add-task" method="post">
 
+<input type="text" name="title>
 <input type="text" name="location">
 
-<select name="task-type">
+<select name="taskType">
   <option value="text" selected>Text</option>
   <option value="photo">Photo</option>
   <option value="video">Video</option>
@@ -17,7 +18,7 @@ Put your game description here.
 </textarea>
 
 <button type="submit">Save</button>
-<button>Cancel</button>
+<a href="/task-overview"><button>Cancel</button></a>
 </form>
 
 
