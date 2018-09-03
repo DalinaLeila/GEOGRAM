@@ -1,23 +1,28 @@
-<h2>GEOGAME</h2>
+<h1 class="logo">GEOGAME
+</h1>
+<div class="flex-container">
+  <div>
+    <form action="/auth/login" method="POST" id="form-container">
+      <label for="username">Email</label>
+      <input id="username" type="username" name="username" placeholder="Your email">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Email</label>
-  <input id="username" type="username" name="username" placeholder="Your email">
+      <br><br>
 
-  <br><br>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+      <br> {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br> {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <br><br>
 
-  <br><br>
+      <button>Login</button>
 
-  <button>Login</button>
+      <p class="account-message">
+        Don't have an account yet?
+        <a href="/auth/signup">Signup</a>
+      </p>
+    </form>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+  </div>
+</div>
