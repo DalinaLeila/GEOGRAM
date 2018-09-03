@@ -11,6 +11,11 @@ const gameSchema = new Schema({
         type: boolean,
         required: true
     },
+    code: String,
+    area: {
+        type: String,
+        enum: ["building", "street"]
+    },
     rating: {
         type: Number,
         min: 1,
