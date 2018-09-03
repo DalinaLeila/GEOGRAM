@@ -18,6 +18,8 @@ creator.post("/game-details", (req, res, next) => {
         description,
         private } = req.body
 
+        console.log(req.body)
+
     const game = new Game({
         title: title,
         creator: req.user._id,
@@ -25,8 +27,9 @@ creator.post("/game-details", (req, res, next) => {
         description: description,
     }).save().then(
         game => {
-            console.log("Game details post worked")
-            res.render("creator/tasks-overview", { game })
+            let id = game._id
+            console.log("ID of Game: ", id)
+            res.render("creator/tasks-overview", {id})
         });
 })
 
