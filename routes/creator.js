@@ -4,14 +4,13 @@ const User = require("../models/User");
 const Game = require("../models/Game");
 const Task = require("../models/Task");
 
-
 creator.get("/creator-overview", (req, res, next) => {
-    res.render("creator/creator-overview");
+  res.render("creator/creator-overview");
 });
 
 creator.get("/game-details", (req, res, next) => {
-    res.render("creator/game-details");
-})
+  res.render("creator/game-details");
+});
 
 creator.post("/game-details", (req, res, next) => {
 

@@ -12,8 +12,8 @@ const gameSchema = new Schema({
     },
     tasks: [Schema.Types.ObjectId],
     private: {
-        type: boolean,
-        required: true
+        type: Boolean,
+        default: false
     },
     description: String,
     rating: {
