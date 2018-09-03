@@ -1,44 +1,36 @@
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00b7ff; }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-}
+  background-color: #333; }
 
 li {
-  float: right;
-}
+  float: right; }
 
 li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: grey;
-}
+  background-color: grey; }
 
 .flex-container {
   display: flex;
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
 /*# sourceMappingURL=style.css.map */
