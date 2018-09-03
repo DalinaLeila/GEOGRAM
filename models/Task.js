@@ -6,15 +6,19 @@ const taskSchema = new Schema({
         type: String,
         required: true,
     },
-    inputType: {
+    taskType: {
         type: String,
         enum: ["text", "photo", "video", "audio"],
         dafault: "text",
     },
-    private: {
-        type: boolean,
+    description: {
+        type: String,
         required: true
     },
+    location: {
+        type: String,
+        required: true,
+    }
 })
 
 module.exports = mongoose.model('Task', taskSchema)
