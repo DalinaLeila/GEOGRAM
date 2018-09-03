@@ -1,6 +1,6 @@
 <h1>Step 2 - Add task</h2>
 
-<form action="/add-task" method="post">
+<form action="/add-task/{{this.id}}" method="post">
 
 <input type="text" name="title>
 <input type="text" name="location">
@@ -18,7 +18,7 @@ Put your game description here.
 </textarea>
 
 <button type="submit">Save</button>
-<a href="/task-overview"><button>Cancel</button></a>
+<a href="/task-overview/{{this.id}}"><button>Cancel</button></a>
 </form>
 
 

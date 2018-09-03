@@ -2,7 +2,7 @@ const express = require("express");
 const creator = express.Router();
 const User = require("../models/User");
 const Game = require("../models/Game");
-const Game = require("../models/Task");
+const Task = require("../models/Task");
 
 
 creator.get("/creator-overview", (req, res, next) => {
@@ -26,6 +26,7 @@ creator.post("/game-details", (req, res, next) => {
         description: description,
     }).save().then(
         game => {
+            console.log("Game details post worked")
             res.render("creator/tasks-overview", { game })
         });
 })
@@ -56,6 +57,15 @@ creator.post("/add-task/:id", (req, res, next) => {
             
         });
 })
+
+creator.get("/tasks-overview/:id", (req, res, next) => {
+    let id = req.params.id;
+    game= Game.findById(id).then(game=>{
+        res.render("creator/tasks-overview", {game});
+    })
+    
+})
+
 
 
 
