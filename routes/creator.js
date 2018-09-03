@@ -5,11 +5,11 @@ const Game = require("../models/Game");
 const Task = require("../models/Task");
 
 creator.get("/creator-overview", (req, res, next) => {
-  res.render("creator/creator-overview");
+    res.render("creator/creator-overview");
 });
 
 creator.get("/game-details", (req, res, next) => {
-  res.render("creator/game-details");
+    res.render("creator/game-details");
 });
 
 creator.post("/game-details", (req, res, next) => {
@@ -18,7 +18,6 @@ creator.post("/game-details", (req, res, next) => {
         description,
         private } = req.body
 
-        console.log(req.body)
 
     const game = new Game({
         title: title,
@@ -28,19 +27,19 @@ creator.post("/game-details", (req, res, next) => {
     }).save().then(
         game => {
             let id = game._id
-            console.log("ID of Game: ", id)
-            res.render("creator/tasks-overview", {id})
+            res.render("creator/tasks-overview", { id })
         });
 })
 
-creator.get("/add-task/:id", (req, res, next) => {
+creator.get("/:id/add-task", (req, res, next) => {
     let id = req.params.id;
-    res.render("creator/add-task", {id});
+    res.render("creator/add-task", { id });
 })
 
 
-creator.post("/add-task/:id", (req, res, next) => {
+creator.post("/:id/add-task", (req, res, next) => {
     let id = req.params.id;
+    var tasks = []
     const { title,
         location,
         taskType,
@@ -53,19 +52,31 @@ creator.post("/add-task/:id", (req, res, next) => {
         location: location
     }).save().then(
         task => {
-            Game.findByIdAndUpdate(id, {$push: { tasks: task._id}}).then(game=>{
-                res.render("creator/tasks-overview", { game })
-            })
+            console.log("TASK ", task)
             
-        });
+            Game.findByIdAndUpdate(id, { $push: { tasks: task._id } }, { new: true }).then(game => {
+
+                console.log("FOUND GAME ", game)
+                game.tasks.forEach(taskId => {
+
+                    Task.findById(taskId).then(t => {
+                        console.log("FOUND TASK", t)
+                        tasks.push(t)
+
+                    })
+                })
+
+            }).then(result => res.render("creator/tasks-overview", { "id": id, "tasks": tasks })).catch(err=>console.error(err))
+
+        }).catch(err=>{console.error(err)});
 })
 
-creator.get("/tasks-overview/:id", (req, res, next) => {
+creator.get("/:id/tasks-overview", (req, res, next) => {
     let id = req.params.id;
-    game= Game.findById(id).then(game=>{
-        res.render("creator/tasks-overview", {game});
+    game = Game.findById(id).then(game => {
+        res.render("creator/tasks-overview", { game });
     })
-    
+
 })
 
 
