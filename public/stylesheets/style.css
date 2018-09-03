@@ -1,5 +1,6 @@
 * {
   margin: 0;
+<<<<<<< HEAD
   padding: 0; }
 
 body {
@@ -7,22 +8,44 @@ body {
 
 a {
   color: #00b7ff; }
+=======
+  padding: 0;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+>>>>>>> aebc506ee7c6557dd94ab2d9b785cbdc9c921569
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+<<<<<<< HEAD
   background-color: #333; }
 
 li {
   float: right; }
+=======
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+>>>>>>> aebc506ee7c6557dd94ab2d9b785cbdc9c921569
 
 li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
+<<<<<<< HEAD
   text-decoration: none; }
 
 /* Change the link color to #111 (black) on hover */
@@ -30,3 +53,19 @@ li a:hover {
   background-color: grey; }
 
 /*# sourceMappingURL=style.css.map */
+=======
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: grey;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=style.css.map */
+>>>>>>> aebc506ee7c6557dd94ab2d9b785cbdc9c921569
