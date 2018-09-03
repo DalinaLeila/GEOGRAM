@@ -40,5 +40,10 @@ server.on('error', error => {
 });
 
 server.listen(3000, () => {
+<<<<<<< HEAD
   console.log(`Listening on http://localhost:3000`);
+=======
+  console.log(`Listening on http://localhost3000:`);
+>>>>>>> c366e0acdd7e89687e06aab33735eeff33199e57
 });
+
