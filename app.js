@@ -85,4 +85,7 @@ app.use('/auth', authRoutes)
 const creator = require('./routes/creator')
 app.use('/creator', creator)
 
+const player = require('./routes/player')
+app.use('/play', player)
+
 module.exports = app
