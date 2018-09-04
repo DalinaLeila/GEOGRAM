@@ -4,6 +4,10 @@
 
 <p>list of games</p>
 
+{{#if games}}
 {{#each games}}
-<p>{{this.title}}</p>
-{{/each games}}
+<a href="/creator/{{this._id}}/edit-game-details">{{this.title}}</a>
+<br>
+<br>
+{{/each}}
+{{/if}}
