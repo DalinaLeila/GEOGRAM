@@ -6,7 +6,7 @@ const Task = require('../models/Task')
 const ensureLogin = require('connect-ensure-login')
 const { upload } = require('../utils/cloudinary')
 
-player.get('/overview/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
+player.get('/player-overview/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
 
     Game.findById(id).then(game => {

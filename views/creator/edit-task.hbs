@@ -1,11 +1,11 @@
 <h1>Step 2 - Add task</h2>
 
-<form action="/creator/edit-task/{{id}}" method="post">
+<form action="/creator/{{id}}/edit-task/{{task._id}}" method="post">
 
-<input type="text" name="title" value="{{this.title}}">
-<input type="text" name="location" value="{{this.location}}">
+<input type="text" name="title" value="{{task.title}}">
+<input type="text" id="location" name="location" value="{{task.location}}">
 
-<select name="taskType" value="{{this.taskType}}">
+<select name="taskType" value="{{task.taskType}}">
   <option value="text">Text</option>
   <option value="photo">Photo</option>
   <option value="video">Video</option>
@@ -13,8 +13,8 @@
 </select>
 
 
-<textarea rows="4" cols="50" name="description" value="{{this.description}}">
-Put your game description here.
+<textarea rows="4" cols="50" name="description">
+{{task.description}}
 </textarea>
 
 <button type="submit">Update</button>

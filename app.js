@@ -34,7 +34,6 @@ const app = express()
 
 // Middleware Setup
 app.use(logger('dev'))
-app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -88,6 +87,6 @@ const creator = require('./routes/creator')
 app.use('/creator', creator)
 
 const player = require('./routes/player')
-app.use('/play', player)
+app.use('/player', player)
 
 module.exports = app

@@ -1,25 +1,40 @@
-<h1 class="logo">GEOGAME</h1>
+<style>
+  body {
+    background: url("/images/fernsehrturm.gif") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
+
+<div class="logo">
+  <h1 class="logo-title">GEOGAME</h1>
+  <h2><i>The fun way to experience a city</i></h2>
+</div>
+
 <div class="flex-container">
-	<form action="/auth/login" method="POST" id="form-container">
-		<label for="username">Email</label>
-		<input id="username" type="username" name="username" placeholder="Your email">
+  <form action="/auth/login" method="POST" id="form-container">
+    <h3 class="title">Login</h3>
+    <label for="username">Email</label>
+    <input id="email" type="email" name="username" placeholder="Your email">
 
-		<br><br>
+    <br><br>
 
-		<label for="password">Password</label>
-		<input id="password" type="password" name="password" placeholder="Your password">
-		<br> {{#if message }}
-		<div class="error-message">{{ message }}</div>
-		{{/if}}
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="Your password">
+    <br> {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
 
-		<br><br>
+    <br><br>
 
-		<button class="btn-login">Login</button>
+    <button class="btn-login">Login</button>
 
-		<p class="account-message">
-			Don't have an account yet?
-			<a href="/auth/signup">Signup</a>
-		</p>
-	</form>
+    <p class="account-message">
+      Don't have an account yet?
+      <a href="/auth/signup">Signup</a>
+    </p>
+  </form>
 
 </div>
