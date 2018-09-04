@@ -4,6 +4,7 @@
   padding: 0; }
 
 body {
+<<<<<<< HEAD
   font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
 
 .logo {
@@ -12,6 +13,11 @@ body {
   justify-content: center;
   font-size: 5em;
   color: white; }
+=======
+  font: 15px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: url("http://zerletti.de/wp-content/uploads/2015/07/Strausberger.gif") no-repeat center center fixed;
+  background-size: cover; }
+>>>>>>> 867e8ace57c3ded3f5d499fbc583b4e1f2ba2620
 
 .btn-login,
 .btn-signup {

@@ -36,14 +36,14 @@ creator.post("/game-details", (req, res, next) => {
     });
 });
 
-creator.get("/:id/add-task", (req, res, next) => {
+creator.get("/:id/add-task", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   let id = req.params.id;
   res.render("creator/add-task", { id });
 });
 
 creator.post("/:id/add-task", (req, res, next) => {
   let id = req.params.id;
-  var tasks = [];
+  let tasks = [];
   const { title, location, taskType, description } = req.body;
 
   const task = new Task({
@@ -54,21 +54,18 @@ creator.post("/:id/add-task", (req, res, next) => {
   })
     .save()
     .then(task => {
-      console.log("TASK ", task);
-
+      //Game.findById(id).populate("tasks")
       Game.findByIdAndUpdate(id, { $push: { tasks: task._id } }, { new: true })
         .then(game => {
-          console.log("FOUND GAME ", game);
           game.tasks.forEach(taskId => {
             Task.findById(taskId).then(t => {
-              console.log("FOUND TASK", t);
               tasks.push(t);
             });
           });
         })
         .then(result =>
           res.render("creator/tasks-overview", {
-            gameId: id,
+            id: id,
             tasks: tasks
           })
         )
@@ -79,14 +76,31 @@ creator.post("/:id/add-task", (req, res, next) => {
     });
 });
 
-creator.get("/:id/tasks-overview", (req, res, next) => {
-  let id = req.params.id;
-  game = Game.findById(id).then(game => {
-    res.render("creator/tasks-overview", { game });
-  });
-});
+creator.get(
+  "/:id/tasks-overview",
+  ensureLogin.ensureLoggedIn(),
+  (req, res, next) => {
+    let id = req.params.id;
+    game = Game.findById(id).then(game => {
+      res.render("creator/tasks-overview", { game });
+    });
+  }
+);
 
-creator.get("/:id/");
+creator.get(
+  "/:id/edit-task/:taskId",
+  ensureLogin.ensureLoggedIn(),
+  (req, res, next) => {
+    let id = req.params.id;
+    let taskId = req.params.taskId;
+    let taskObj;
+    Task.findById(taskId).then(task => {
+      taskObj = task;
+      console.log("TASK: ", taskObj);
+      res.render("creator/edit-task", { id: id, task: taskObj });
+    });
+  }
+);
 
 creator.get("/invite-friends", (req, res, next) => {
   res.render("creator/invite-friends");
@@ -114,4 +128,51 @@ creator.post("/send-email", (req, res, next) => {
     .then(info => res.render("message", { email, subject, message, info }))
     .catch(error => console.log(error));
 });
+module.exports = creator;
+creator.post("/:id/edit-task/:taskId", (req, res, next) => {
+  let id = req.params.id;
+  let taskId = req.params.taskId;
+  let tasks = [];
+  const { title, location, taskType, description } = req.body;
+
+  Task.findByIdAndUpdate(taskId, {
+    title: title,
+    location: location,
+    taskType: taskType,
+    description: description
+  }).then(task => {
+    Game.findById(id)
+      .populate("tasks")
+      .then(game =>
+        res.render("creator/tasks-overview", {
+          id: id,
+          tasks: game.tasks
+        })
+      );
+  });
+});
+
+creator.get("/:id/delete-task/:taskId", (req, res, next) => {
+  let id = req.params.id;
+  let taskId = req.params.taskId;
+  let tasks = [];
+  Task.findByIdAndRemove(taskId).then(task => {
+    Game.findById(id)
+      .then(game => {
+        game.tasks.splice(game.tasks.indexOf(taskId), 1);
+        return game.save();
+      })
+      .then(game => {
+        return Game.findById(game._id).populate("tasks"); // TODO manually populate? maybe?
+      })
+      .then(game => {
+        console.log(game);
+        res.render("creator/tasks-overview", {
+          id: id,
+          tasks: game.tasks
+        });
+      });
+  });
+});
+
 module.exports = creator;
