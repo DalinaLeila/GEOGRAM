@@ -74,8 +74,6 @@ creator.get('/:id/tasks-overview', ensureLogin.ensureLoggedIn(), (req, res, next
   })
 })
 
-
-
 creator.get("/:id/edit-task/:taskId", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   let id = req.params.id;
   let taskId = req.params.taskId;
