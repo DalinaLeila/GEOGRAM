@@ -11,10 +11,11 @@ creator.get(
   "/creator-overview",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    //User.findById(req.user._id).then(user=>{
-
-    //})
-    res.render("creator/creator-overview");
+    let games = Game.find({creator: req.user._id}).then(games=>{
+      //console.log("FOUND GAMES FOR USER: ", games)
+      res.render("creator/creator-overview", {games});
+    })
+    
   }
 );
 
