@@ -3,7 +3,7 @@
 <form action="/creator/{{id}}/edit-task/{{task._id}}" method="post">
 
 <input type="text" name="title" value="{{task.title}}">
-<input type="text" name="location" value="{{task.location}}">
+<input type="text" id="location" name="location" value="{{task.location}}">
 
 <select name="taskType" value="{{task.taskType}}">
   <option value="text">Text</option>

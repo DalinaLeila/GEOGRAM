@@ -11,6 +11,9 @@ creator.get(
   "/creator-overview",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
+    //User.findById(req.user._id).then(user=>{
+
+    //})
     res.render("creator/creator-overview");
   }
 );
