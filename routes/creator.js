@@ -1,9 +1,12 @@
 const express = require("express");
 const creator = express.Router();
+
 const User = require("../models/User");
 const Game = require("../models/Game");
 const Task = require("../models/Task");
 const ensureLogin = require("connect-ensure-login");
+
+const nodemailer = require("nodemailer");
 
 creator.get(
   "/creator-overview",
@@ -64,9 +67,10 @@ creator.post("/:id/add-task", (req, res, next) => {
           });
         })
         .then(result =>
-          res.render("creator/tasks-overview", { 
-            gameId: id, 
-            tasks: tasks })
+          res.render("creator/tasks-overview", {
+            gameId: id,
+            tasks: tasks
+          })
         )
         .catch(err => console.error(err));
     })
@@ -82,6 +86,32 @@ creator.get("/:id/tasks-overview", (req, res, next) => {
   });
 });
 
-creator.get("/:id/")
+creator.get("/:id/");
 
+creator.get("/invite-friends", (req, res, next) => {
+  res.render("creator/invite-friends");
+});
+
+creator.post("/send-email", (req, res, next) => {
+  let { email, subject, message, name } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: "geolocation.ironhack@gmail.com",
+      pass: "ir0nhackproject2"
+    }
+  });
+  transporter
+    .sendMail({
+      from: '"NAME" <geolocation.ironhack@gmail.com>',
+      to: email,
+      subject: "GEOGAME INVITE ✔",
+      text: `Hello ${name}!`,
+      html:
+        `<p>Hello <b>${name}!</b></p>` +
+        "<p>Click the link below to play!: <br><br><a> LINK </a></p>"
+    })
+    .then(info => res.render("message", { email, subject, message, info }))
+    .catch(error => console.log(error));
+});
 module.exports = creator;

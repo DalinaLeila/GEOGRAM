@@ -1,11 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One");
 * {
   margin: 0;
   padding: 0; }
 
 body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("http://zerletti.de/wp-content/uploads/2015/07/Strausberger.gif") no-repeat center center fixed;
-  background-size: cover; }
+  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
+
+.logo {
+  margin: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: 5em;
+  color: white; }
 
 .btn-login,
 .btn-signup {
@@ -42,6 +48,11 @@ li a:hover {
 .flex-container {
   display: flex;
   justify-content: center; }
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: white; }
 
 #form-container {
   border: 1px solid white;
