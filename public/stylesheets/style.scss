@@ -4,9 +4,12 @@
   @import url("https://fonts.googleapis.com/css?family=Julius+Sans+One");
 }
 body {
-  // padding: 50px;
   font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
   background-color: grey;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .logo {
@@ -48,6 +51,13 @@ body {
   color: white;
   margin-bottom: 10px;
 }
+
+.btn-signup:hover,
+.btn-login:hover {
+  background-color: #00b7ff;
+  border: 2px solid #00b7ff;
+}
+
 a {
   color: #00b7ff;
   font-weight: bolder;
@@ -106,4 +116,18 @@ li a:hover {
 .account-message {
   color: white;
   font-size: 0.9em;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    font: 10px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
+  }
+  .logo {
+    font-size: 0.7em;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
 }

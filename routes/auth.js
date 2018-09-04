@@ -15,16 +15,16 @@ authRoutes.get("/login", (req, res, next) => {
 authRoutes.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "success",
+    successRedirect: "home",
     failureRedirect: "login",
     failureFlash: true,
     passReqToCallback: true
   })
 );
 
-authRoutes.get("/success", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+authRoutes.get("/home", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   // if (!req.session.currentUser) return res.send('Please log in first!')
-  res.render("index");
+  res.render("player/player-overview");
 });
 
 authRoutes.get("/signup", (req, res, next) => {
