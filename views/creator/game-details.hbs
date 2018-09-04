@@ -1,11 +1,26 @@
-<h2>Step 1 - Game Details</h2>
+<style>
+  body {
+    background: url("/images/creator1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
-<form action="/creator/game-details" method="post">
-  <label for="title">Game Title:</label>
-  <input type="text" name="title" id="game-title">
-  <label for="description">Description:</label>
-  <input type="text" name="description" id="game-description">
-  <label for="private">Private?</label>
-  <input type="checkbox" name="private" id="game-privacy">
-  <button type="submit">Next Step</button>
-</form>
+
+
+<div class="flex-container-game">
+
+  <form action="/creator/game-details" method="post" id="form-container-game">
+    <h2>Step 1 - Game Details</h2>
+    <label for="title">Game Title:</label>
+    <input type="text" name="title" id="game-title">
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="game-description">
+    <label for="private">Private?</label>
+    <input type="checkbox" name="private" id="game-privacy">
+    <button type="submit" class="btn-next">Next Step</button>
+  </form>
+
+</div>

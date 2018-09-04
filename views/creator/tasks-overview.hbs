@@ -1,11 +1,25 @@
-<h2>Game name</h2>
+<style>
+  body {
+    background: url("/images/creator1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
-<h3>All tasks</h3>
+<div class="flex-container-game" id="form-container-game">
 
-<a href="/creator/{{id}}/add-task"><button>Add task</button></a>
+  <h2>Game name</h2>
 
-{{#each tasks}}
-<p>{{this.title}}</p> 
-<a href="/creator/{{../id}}/edit-task/{{this._id}}"><button>Edit</button></a>
-<a href="/creator/{{../id}}/delete-task/{{this._id}}"><button>Delete</button></a>
-{{/each}}
+  <h3>All tasks</h3>
+
+  <a href=" /creator/{{id}}/add-task "><button>Add task</button></a>
+
+  {{#each tasks}}
+  <p>{{this.title}}</p>
+  <a href="/creator/{{../id}}/edit-task/{{this._id}} "><button>Edit</button></a>
+  <a href="/creator/{{../id}}/delete-task/{{this._id}} "><button>Delete</button></a>
+  {{/each}}
+
+</div>

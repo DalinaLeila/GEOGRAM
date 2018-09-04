@@ -4,8 +4,7 @@
   padding: 0; }
 
 body {
-  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
-  background-color: grey; }
+  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
 
 .logo {
   margin: 40px;
@@ -91,8 +90,21 @@ li a:hover {
   text-align: center;
   color: darkblue; }
 
+.flex-container-game {
+  margin-left: 50px;
+  width: 450px; }
+
+#form-container-game {
+  margin-top: 40px;
+  background-image: linear-gradient(to top, transparent, white);
+  height: 300px;
+  border-radius: 7px;
+  padding: 20px 30px;
+  text-align: center;
+  color: black; }
+
 .account-message {
-  color: white;
+  color: #00b7ff;
   font-size: 0.9em; }
 
 @media only screen and (max-width: 768px) {
@@ -127,5 +139,60 @@ input:focus {
   color: #08c;
   border: 1px solid #08c;
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25); }
+
+.btn-newGame {
+  width: 200px;
+  height: 60px;
+  background-color: #00b7ff;
+  border: 2px solid #00b7ff;
+  border-radius: 12px;
+  color: white;
+  font-size: 1em;
+  margin-bottom: 10px; }
+
+.btn-newGame:hover {
+  background-color: #cf009c;
+  border: 2px solid #cf009c; }
+
+.btn-next {
+  width: 100px;
+  height: 30px;
+  background-color: #00b7ff;
+  border: 2px solid #00b7ff;
+  border-radius: 12px;
+  color: white;
+  font-size: 1em;
+  margin-bottom: 10px; }
+
+.btn-next:hover {
+  background-color: #cf009c;
+  border: 2px solid #cf009c; }
+
+#game-intro {
+  margin-top: 150px;
+  text-align: center;
+  color: white;
+  font-size: 1.5em; }
+
+#game-intro h1 {
+  font-size: 2.5em;
+  margin-bottom: 25px; }
+
+.game-title {
+  color: #cf009c; }
+
+.btn-play {
+  width: 200px;
+  height: 60px;
+  background-color: #00b7ff;
+  border: 2px solid #00b7ff;
+  border-radius: 12px;
+  color: white;
+  font-size: 1em;
+  margin: 100px; }
+
+.btn-play:hover {
+  background-color: #cf009c;
+  border: 2px solid #cf009c; }
 
 /*# sourceMappingURL=style.css.map */
