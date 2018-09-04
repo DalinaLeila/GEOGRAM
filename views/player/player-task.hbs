@@ -1,10 +1,9 @@
-{{#each tasks}}
-<p>this.location</p>
-<p>this.description</p>
-{{/each}}
+{{!-- {{#each tasks}} --}}
+<p>{{tasks.1.location}}</p>
+<p>{{tasks.1.description}}</p>
+{{!-- {{/each}} --}}
 
-<form action="/player/player-task/{{this.id}}" method="POST" enctype="multipart/form-data">
+<form action="/player/player-task/{{tasks.1._id}}" method="POST" enctype="multipart/form-data">
   <input type="file" name="file" id="upload">
   <button type="submit">Submit</button>
-
 </form>
