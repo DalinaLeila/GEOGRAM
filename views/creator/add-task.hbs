@@ -7,7 +7,7 @@
     <input type="text" name="title">
     <label for="location">Location:</label>
 
-    <input type="text" name="location">
+    <input type="text" id="location" name="location">
 
     <label for="taskType">Select the task type:</label>
     <select name="taskType">
@@ -25,3 +25,8 @@ Put your task description here.
     <button type="submit">Save</button>
     <a href="/creator/tasks-overview/{{this.id}}"><button>Cancel</button></a>
   </form>
+
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&libraries=places&callback=initAutocomplete"
+    async defer></script>
