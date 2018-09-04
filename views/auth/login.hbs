@@ -1,12 +1,11 @@
-<h2>
-	GEOGAME</h2>
-
+<h1 class="logo">GEOGAME</h1>
 <div class="flex-container">
-
 	<form action="/auth/login" method="POST" id="form-container">
 		<label for="username">Email</label>
 		<input id="username" type="username" name="username" placeholder="Your email">
+
 		<br><br>
+
 		<label for="password">Password</label>
 		<input id="password" type="password" name="password" placeholder="Your password">
 		<br> {{#if message }}
@@ -15,7 +14,7 @@
 
 		<br><br>
 
-		<button>Login</button>
+		<button class="btn-login">Login</button>
 
 		<p class="account-message">
 			Don't have an account yet?

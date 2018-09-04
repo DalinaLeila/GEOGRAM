@@ -1,4 +1,11 @@
 <h2>Game name</h2>
 
 <h3>All tasks</h3>
-<a href="/creator/add-task/{{id}}"><button>Add task</button></a>
+
+<a href="/creator/{{gameId}}/add-task"><button>Add task</button></a>
+
+{{#each tasks}}
+<p>{{this.title}}</p> 
+<a href="/creator/{{../gameId}}/edit-task/{{this._id}}"><button>Edit</button></a>
+{{/each}}
+<pre>{{{gameId}}}</pre>
