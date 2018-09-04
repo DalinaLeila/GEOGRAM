@@ -1,5 +1,5 @@
-<form action="" method="post">
-
-  <input type="file" name="upload" id="upload">
+<form action="/play/task/{{this.id}}" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" id="upload">
+  <button type="submit">Submit</button>
 
 </form>
