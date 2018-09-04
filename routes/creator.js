@@ -40,7 +40,7 @@ creator.get("/:id/add-task", (req, res, next) => {
 
 creator.post("/:id/add-task", (req, res, next) => {
   let id = req.params.id;
-  var tasks = [];
+  let tasks = [];
   const { title, location, taskType, description } = req.body;
 
   const task = new Task({
@@ -51,22 +51,23 @@ creator.post("/:id/add-task", (req, res, next) => {
   })
     .save()
     .then(task => {
-      console.log("TASK ", task);
+
 
       Game.findByIdAndUpdate(id, { $push: { tasks: task._id } }, { new: true })
         .then(game => {
-          console.log("FOUND GAME ", game);
+
           game.tasks.forEach(taskId => {
             Task.findById(taskId).then(t => {
-              console.log("FOUND TASK", t);
+
               tasks.push(t);
             });
           });
         })
         .then(result =>
-          res.render("creator/tasks-overview", { 
-            gameId: id, 
-            tasks: tasks })
+          res.render("creator/tasks-overview", {
+            id: id,
+            tasks: tasks
+          })
         )
         .catch(err => console.error(err));
     })
@@ -82,6 +83,75 @@ creator.get("/:id/tasks-overview", (req, res, next) => {
   });
 });
 
-creator.get("/:id/")
+creator.get("/:id/edit-task/:taskId", (req, res, next) => {
+  let id = req.params.id;
+  let taskId = req.params.taskId;
+  let taskObj;
+  Task.findById(taskId).then(task => {
+    taskObj = task;
+    console.log("TASK: ", taskObj)
+    res.render("creator/edit-task", { id: id, task: taskObj });
+  })
+
+});
+
+creator.post("/:id/edit-task/:taskId", (req, res, next) => {
+  let id = req.params.id;
+  let taskId = req.params.taskId;
+  let tasks = [];
+  const {
+    title,
+    location,
+    taskType,
+    description
+  } = req.body;
+
+  Task.findByIdAndUpdate(taskId, {
+    title: title, location: location, taskType: taskType, description: description
+  }).then(task => {
+
+    Game.findById(id).then(game => {
+
+      game.tasks.forEach(taskId => {
+        Task.findById(taskId).then(t => {
+          tasks.push(t);
+        });
+      });
+    }).then(result =>
+      res.render("creator/tasks-overview", {
+        id: id,
+        tasks: tasks
+      })
+    )
+
+  })
+
+});
+
+
+creator.get("/:id/delete-task/:taskId", (req, res, next) => {
+  let id = req.params.id;
+  let taskId = req.params.taskId;
+  let tasks = [];
+  Task.findByIdAndRemove(taskId).then(task => {
+
+    Game.findById(id).then(game => {
+
+      delete game.tasks[game.tasks.indexOf(taskId)]
+      game.tasks.forEach(taskId => {
+        Task.findById(taskId).then(t => {
+          tasks.push(t);
+        });
+      });
+    }).then(result =>
+      res.render("creator/tasks-overview", {
+        id: id,
+        tasks: tasks
+      })
+    )
+
+  })
+
+});
 
 module.exports = creator;
