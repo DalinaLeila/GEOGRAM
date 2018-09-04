@@ -2,12 +2,17 @@
   body {
     background-image: url("https://blog.parkinn.com/wp-content/uploads/sites/7/2017/01/berlin-lightning-timelapse-29.07.gif");
     background-size: cover;
+    background-repeat: no-repeat;
   }
 </style>
-<h1 class="logo">GEOGAME</h1>
-<h2 class="title">Signup</h2>
+<div class="logo">
+  <h1 class="logo-title">GEOGAME</h1>
+  <h2><i>Experience a city the fun way </i></h2>
+</div>
+
 <div class="flex-container">
   <form action="/auth/signup" method="POST" id="form-container">
+    <h3 class="title">Signup</h3>
     <label for="email">Email</label>
     <input id="email" type="email" name="email" placeholder="Your Email">
 
@@ -24,7 +29,7 @@
     <button class="btn-signup">Create account</button>
 
     <p class="account-message">
-      Do you already have an account?
+      Already have an account?
       <a href="/auth/login">Login</a>
     </p>
   </form>
