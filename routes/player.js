@@ -20,16 +20,29 @@ player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     })
 })
 
-player.get('/task/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
+player.get('/player-task/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
-    // dbTask --> Task.findById
-    // res.render('player/player-task', {
-    //     task: dbTask
+
+    Game.findById(id).then(game => {
+        let tasks = []
+        const taskRefs = game.tasks
+
+        taskRefs.forEach(taskRef => {
+            Task.findById(taskRef).then(task => {
+                // console.log(task)    //returns obj
+                tasks.push(task)
+            })
+        })
+        res.render('player/player-task', { tasks })
+    })
+
+    // .then(el => {
+    //     console.log(tasks) //empty array
+    //     res.render('player/player-task', { task })
     // })
-    res.render('play/player-task')
 })
 
-player.post('/task/:id', (req, res, next) => {
+player.post('/player-task/:id', (req, res, next) => {
     // const id = req.params.id
     // console.log(req.files)
     // const { file } = req.files
