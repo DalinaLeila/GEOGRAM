@@ -1,67 +1,52 @@
 * {
-    margin: 0;
-    padding: 0;
-}
+  margin: 0;
+  padding: 0; }
 
 body {
-    font: 15px 'Lucida Grande', Helvetica, Arial, sans-serif;
-    background: url('http://zerletti.de/wp-content/uploads/2015/07/Strausberger.gif') no-repeat center
-        center fixed;
-    background-size: cover;
-}
+  font: 15px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: url("http://zerletti.de/wp-content/uploads/2015/07/Strausberger.gif") no-repeat center center fixed;
+  background-size: cover; }
 
 .btn-login,
 .btn-signup {
-    width: 200px;
-    height: 30px;
-    background-color: #cf009c;
-    border: 2px solid #cf009c;
-    border-radius: 12px;
-    color: white;
-}
+  width: 200px;
+  height: 30px;
+  background-color: #cf009c;
+  border: 2px solid #cf009c;
+  border-radius: 12px;
+  color: white; }
 
 a {
-    color: #00b7ff;
-}
+  color: #00b7ff; }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
 
 li {
-    float: right;
-}
+  float: right; }
 
 li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: darkblue;
-}
+  background-color: darkblue; }
 
 .flex-container {
-    display: flex;
-    justify-content: center;
-}
+  display: flex;
+  justify-content: center; }
 
 #form-container {
-    border: 1px solid white;
-    padding: 30px;
-    text-align: center;
-    color: white;
-}
-
-.container {
-    padding: 25px calc((100% - 960px) / 2);
-}
+  border: 1px solid white;
+  padding: 30px;
+  text-align: center;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

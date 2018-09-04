@@ -29,7 +29,7 @@ creator.post('/game-details', (req, res, next) => {
         })
 })
 
-creator.get('/:id/add-task', (req, res, next) => {
+creator.get('/:id/add-task', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     let id = req.params.id
     res.render('creator/add-task', { id })
 })
@@ -72,7 +72,7 @@ creator.post('/:id/add-task', (req, res, next) => {
         })
 })
 
-creator.get('/:id/tasks-overview', (req, res, next) => {
+creator.get('/:id/tasks-overview', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     let id = req.params.id
     game = Game.findById(id).then(game => {
         res.render('creator/tasks-overview', { game })
