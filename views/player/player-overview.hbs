@@ -1,10 +1,11 @@
-<h2>Welcome to --title--</h2>
-<p>----Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-  magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-  no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.---</p>
+ {{#if this.private}}
+<h3>Your Private games</h3>
 
-{{#each tasks}}
-<p>{{this.title}}</p>
+<form action="">
+  <input type="text" name="enter-code" id="enter-code" placeholder="Enter Code">
+  <button type="submit">Enter</button>
+</form>
+{{/if}}
+<h3>Suggested games</h3><br><br> {{#each game}}
+<h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
 {{/each}}
-
-<button class="btn-play">PLAY</button>

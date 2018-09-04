@@ -6,22 +6,17 @@ const Task = require('../models/Task')
 const ensureLogin = require('connect-ensure-login')
 const { upload } = require('../utils/cloudinary')
 
-player.get('/player-overview/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
+player.get('/player-overview', (req, res) => {
+    Game.find({}).then(game => {
+        res.render('player/player-overview', { game })
+    })
+})
+
+player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
 
     Game.findById(id).then(game => {
-        let tasks = []
-        taskRefs = game.tasks
-        console.log(taskRefs)
-        taskRefs.forEach(taskRef => {
-            Task.findById(taskRef).then(task => {
-                tasks.push(task)
-                console.log(task.title)
-            })
-        })
-        res.render('player/player-overview', { tasks })
-
-        // res.render('player/player-overview', { game })
+        res.render('player/game', { game })
     })
 })
 
