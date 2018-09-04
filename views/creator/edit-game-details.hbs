@@ -1,0 +1,11 @@
+<h2>Edit Game Details</h2>
+
+<form action="/creator/{{game._id}}/edit-game-details" method="post">
+  <label for="title">Game Title</label>
+  <input type="text" name="title" id="game-title" value="{{game.title}}">
+  <label for="description">Description:</label>
+  <input type="text" name="description" id="game-description" value="{{game.description}}">
+  <label for="private">Private?</label>
+  <input type="checkbox" name="private" id="game-privacy" value="{{game.private}}">
+  <button type="submit">Edit tasks</button>
+</form>

@@ -19,7 +19,12 @@ const taskSchema = new Schema({
     location: {
         type: String,
         required: true
+    },
+    order: {
+        type: Number,
+        default: 1
     }
+
 })
 
 module.exports = mongoose.model('Task', taskSchema)

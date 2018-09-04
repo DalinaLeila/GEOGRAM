@@ -4,17 +4,17 @@ const User = require("../models/User");
 const Game = require("../models/Game");
 const Task = require("../models/Task");
 const ensureLogin = require("connect-ensure-login");
-
+const url = require("url")
 const nodemailer = require("nodemailer");
 
 creator.get(
   "/creator-overview",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    //User.findById(req.user._id).then(user=>{
+    let games = Game.find({ creator: req.user._id }).then(games => {
+      res.render("creator/creator-overview", { games });
+    })
 
-    //})
-    res.render("creator/creator-overview");
   }
 );
 
@@ -37,6 +37,39 @@ creator.post("/game-details", (req, res, next) => {
       res.render("creator/tasks-overview", { id });
     });
 });
+
+creator.get("/:id/edit-game-details", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  let id = req.params.id;
+  Game.findById(id).then(game => {
+    res.render("creator/edit-game-details", { game });
+  })
+
+});
+
+//editing games
+creator.get("/:id/edit-game-details", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  let id = req.params.id;
+  Game.findById(id).then(game => {
+    res.render("creator/edit-game-details", { game });
+  })
+
+});
+
+creator.post("/:id/edit-game-details", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  let id = req.params.id;
+  const { title, description, private } = req.body;
+
+  Game.findByIdAndUpdate(id, { title: title, description: description, private: private },
+    { new: true }).then(game => {
+      res.redirect(url.format({
+        pathname: "/creator/" + id + "/tasks-overview"
+      })
+      )
+    })
+
+});
+
+//
 
 creator.get("/:id/add-task", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   let id = req.params.id;
@@ -77,9 +110,11 @@ creator.get(
   "/:id/tasks-overview",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
+    
     let id = req.params.id;
-    game = Game.findById(id).then(game => {
-      res.render("creator/tasks-overview", { game });
+   
+    game = Game.findById(id).populate("tasks").then(game => {
+      res.render("creator/tasks-overview", { game, id: id, tasks: game.tasks });
     });
   }
 );
@@ -93,7 +128,7 @@ creator.get(
     let taskObj;
     Task.findById(taskId).then(task => {
       taskObj = task;
-      console.log("TASK: ", taskObj);
+      
       res.render("creator/edit-task", { id: id, task: taskObj });
     });
   }
@@ -136,7 +171,7 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
         return Game.findById(game._id).populate("tasks"); // TODO manually populate? maybe?
       })
       .then(game => {
-        console.log(game);
+        
         res.render("creator/tasks-overview", {
           id: id,
           tasks: game.tasks
@@ -147,6 +182,24 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
 
 creator.get("/invite-friends", (req, res, next) => {
   res.render("creator/invite-friends");
+});
+
+
+creator.post("/:id/save-order", (req, res, next) => {
+  console.log("REQ BODY: ", Array.from(req.body));
+  
+  for(let key in req.body) {
+ 
+      let value = req.body[key]
+      Task.findByIdAndUpdate(key, {order: value}).then(task=>{{
+        
+        res.render("creator/invite-friends");
+
+      }})
+    
+  }
+
+  
 });
 
 creator.post("/send-email", (req, res, next) => {
