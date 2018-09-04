@@ -3,7 +3,7 @@
   padding: 0; }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }
 
 a {
   color: #00b7ff; }
@@ -32,5 +32,8 @@ li a:hover {
 .flex-container {
   display: flex;
   justify-content: space-around; }
+
+.container {
+  padding: 25px calc((100% - 960px) / 2); }
 
 /*# sourceMappingURL=style.css.map */

@@ -19,14 +19,11 @@ authRoutes.post(
         failureRedirect: 'login',
         failureFlash: true,
         passReqToCallback: true
-    }),
-    function(req, res) {
-        console.log('req')
-        console.log(res)
-    }
+    })
 )
 
 authRoutes.get('/success', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+    // if (!req.session.currentUser) return res.send('Please log in first!')
     res.render('index')
 })
 
