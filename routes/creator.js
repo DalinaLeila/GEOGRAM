@@ -1,6 +1,5 @@
 const express = require("express");
 const creator = express.Router();
-
 const User = require("../models/User");
 const Game = require("../models/Game");
 const Task = require("../models/Task");
@@ -43,7 +42,6 @@ creator.get("/:id/add-task", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 creator.post("/:id/add-task", (req, res, next) => {
   let id = req.params.id;
-  let tasks = [];
   const { title, location, taskType, description } = req.body;
 
   const task = new Task({
@@ -55,24 +53,20 @@ creator.post("/:id/add-task", (req, res, next) => {
     .save()
     .then(task => {
       //Game.findById(id).populate("tasks")
-      Game.findByIdAndUpdate(id, { $push: { tasks: task._id } }, { new: true })
-        .then(game => {
-          game.tasks.forEach(taskId => {
-            Task.findById(taskId).then(t => {
-              tasks.push(t);
-            });
-          });
-        })
-        .then(result =>
-          res.render("creator/tasks-overview", {
-            id: id,
-            tasks: tasks
-          })
-        )
-        .catch(err => console.error(err));
-    })
-    .catch(err => {
-      console.error(err);
+      Game.findByIdAndUpdate(
+        id,
+        { $push: { tasks: task._id } },
+        { new: true }
+      ).then(game => {
+        Game.findById(id)
+          .populate("tasks")
+          .then(game =>
+            res.render("creator/tasks-overview", {
+              id: id,
+              tasks: game.tasks
+            })
+          );
+      });
     });
 });
 
@@ -102,38 +96,10 @@ creator.get(
   }
 );
 
-creator.get("/invite-friends", (req, res, next) => {
-  res.render("creator/invite-friends");
-});
-
-creator.post("/send-email", (req, res, next) => {
-  let { email, subject, message, name } = req.body;
-  let transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: "geolocation.ironhack@gmail.com",
-      pass: "ir0nhackproject2"
-    }
-  });
-  transporter
-    .sendMail({
-      from: '"NAME" <geolocation.ironhack@gmail.com>',
-      to: email,
-      subject: "GEOGAME INVITE ✔",
-      text: `Hello ${name}!`,
-      html:
-        `<p>Hello <b>${name}!</b></p>` +
-        "<p>Click the link below to play!: <br><br><a> LINK </a></p>"
-    })
-    .then(info => res.render("message", { email, subject, message, info }))
-    .catch(error => console.log(error));
-});
-
-module.exports = creator;
 creator.post("/:id/edit-task/:taskId", (req, res, next) => {
   let id = req.params.id;
   let taskId = req.params.taskId;
-  let tasks = [];
+
   const { title, location, taskType, description } = req.body;
 
   Task.findByIdAndUpdate(taskId, {
@@ -174,6 +140,33 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
         });
       });
   });
+});
+
+creator.get("/invite-friends", (req, res, next) => {
+  res.render("creator/invite-friends");
+});
+
+creator.post("/send-email", (req, res, next) => {
+  let { email, subject, message, name } = req.body;
+  let transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: "geolocation.ironhack@gmail.com",
+      pass: "ir0nhackproject2"
+    }
+  });
+  transporter
+    .sendMail({
+      from: '"NAME" <geolocation.ironhack@gmail.com>',
+      to: email,
+      subject: "GEOGAME INVITE ✔",
+      text: `Hello ${name}!`,
+      html:
+        `<p>Hello <b>${name}!</b></p>` +
+        "<p>Click the link below to play!: <br><br><a> LINK </a></p>"
+    })
+    .then(info => res.render("message", { email, subject, message, info }))
+    .catch(error => console.log(error));
 });
 
 module.exports = creator;
