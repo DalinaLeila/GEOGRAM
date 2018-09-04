@@ -4,9 +4,21 @@
 }
 body {
   // padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("http://zerletti.de/wp-content/uploads/2015/07/Strausberger.gif")
+    no-repeat center center fixed;
+  background-size: cover;
 }
 
+.btn-login,
+.btn-signup {
+  width: 200px;
+  height: 30px;
+  background-color: #cf009c;
+  border: 2px solid #cf009c;
+  border-radius: 12px;
+  color: white;
+}
 a {
   color: #00b7ff;
 }
@@ -16,7 +28,6 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
 }
 
 li {
@@ -33,10 +44,17 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: grey;
+  background-color: darkblue;
 }
 
 .flex-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+#form-container {
+  border: 1px solid white;
+  padding: 30px;
+  text-align: center;
+  color: white;
 }
