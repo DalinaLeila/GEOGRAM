@@ -9,14 +9,19 @@
 </style>
 
 
-<div class="flex-container-col fade-in">
-  <h1 class="first-flex-item">Created Games</h1> <br />
-  <h2>Your games</h2> <br /> {{#if games}} {{#each games}}
-  <a href="/creator/{{this._id}}/edit-game-details">{{this.title}}</a>
-  <br>
-  <br> {{/each}} {{/if}}
-  <a href="/creator/game-details" class="last-flex-item"><button class="btn-newGame">NEW GAME</button></a>
+<div class="flex-container-creator fade-in">
+  <div class="first-flex-item">
+    <h1>Created Games</h1>
+    <a href="/creator/game-details" class="last-flex-item"><button class="btn-newGame">NEW GAME</button></a>
+  </div>
+  {{#if games}} {{#each games}}
 
+  <a class="link-create" href="/creator/{{this._id}}/edit-game-details"><button class="title-desc-section"><div>{{this.title}}</div>
+      <div id="small-text">
+        {{this.description}}
+      </div>
+    </button></a>
 
+  {{/each}} {{/if}}
 
 </div>

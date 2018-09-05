@@ -8,24 +8,27 @@
   }
 </style>
 
-<div class="flex-container-col fade-in">
-  
-  <h3>Your Private games</h3>
+
+<div class="flex-player-overview fade-in">
+  <h1>Your Private games</h1>
 
   <form action="/player/find-game" method="POST">
-    <input type="text" name="code" id="enter-code" placeholder="Enter game code">
-    <button type="submit">Enter</button>
+    <input type="text" name="code" id="enter-code" placeholder="Enter game code"><br>
+    <button type="submit" class="btn-login">Enter</button>
   </form>
 
   {{#if message}}
   <div class="error-message">{{message}}</div>
   {{/if}} {{#each user.games}}
-  <a href="/player/game/{{this._id}}">{{this.title}}</a>
-  <p>{{this.description}}</p>
-  <br><br> {{/each}}
 
+  <a href="/player/game/{{this._id}}">
+    <button class="title-desc-section">
+      <div>{{this.title}}</div>
+      <div id="small-text">{{this.description}}</div>
+    </button>
+  </a>
+  {{/each}}
 </div>
-
 <!--
 <h3>Suggested games</h3><br><br> {{#each game}}
 <h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
