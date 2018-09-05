@@ -61,9 +61,10 @@ player.post('/player-task/:id', (req, res, next) => {
             .then(task => {
                 //deletes local copy
                 fs.unlinkSync(path)
-                res.send(task)
+                // res.send(task)
             })
     })
+    res.redirect('/player/player-task/:id', { id })
 })
 
 player.get('/finished', ensureLogin.ensureLoggedIn(), (req, res) => {
