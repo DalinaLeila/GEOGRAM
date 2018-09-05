@@ -3,9 +3,10 @@
 <p>{{task.description}}</p>
 
 
-<form action="/player/player-task/{{tasks.1._id}}" method="POST" enctype="multipart/form-data">
+<form action="/player/{{game._id}}/player-task/{{taskOrder}}" method="POST" enctype="multipart/form-data">
   <input type="file" name="file" id="upload">
-  <button type="submit">Submit</button>
+  <br>
+  <button type="submit" value="save">Submit</button>
 </form>
 
 <a href="/player/{{game._id}}/player-task/{{taskOrder}}"><button>Next</button></a>

@@ -34,7 +34,7 @@ player.post('/find-game', (req, res) => {
 
                             User.findById(req.user._id)
                                 .populate("games")
-                                .then(user => {
+                                .then(user => {                             
                                     res.render('player/player-overview', { user })
                                 })
 
@@ -70,40 +70,110 @@ player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     })
 })
 
-player.get('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, res) => {
-    const id = req.params.id
-    let taskOrder = req.params.taskOrder
-    let tasks = []
 
-    /*
-    Game.findById(id)
-        .then(game => {
-            const taskRefs = game.tasks
-            taskRefs.forEach(taskRef => {
-                Task.findById(taskRef).then(task => {
-                    // task.sort(task.order)
-                    console.log(task) //returns obj
-                    tasks.push(task)
-                })
-            })
-        })
-        .then(() => {
-            // console.log('TASKS: ', tasks) //returns empty array???
-            res.render('player/player-task', { tasks })
-        })
-        */
+player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
+    const id = req.params.id
+
+    let taskOrder = 2;
 
     Game.findById(id).populate("tasks").then(game => {
+        console.log("TASKS LENGTH: ", game.tasks.length)
+        if (game.tasks.length != 1) {
+            let task;
 
-        let task = game.tasks[taskOrder - 1]
-        taskOrder++;
-        res.render("player/player-task", { game, task, taskOrder })
+            game.tasks.forEach(t => {
+                if (t.order == 1) {
+                    task = t
+                }
+            })
+
+
+            res.render("player/player-task", { game, task, taskOrder })
+
+
+        } else {
+            res.render("player/game-finished", { game, taskOrder })
+        }
+
     }
 
     )
 
 
 
+})
+
+
+
+
+player.post('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, res) => {
+    const id = req.params.id
+    let taskOrder = req.params.taskOrder
+
+
+    req.files.file.mv(`public/uploads/${req.files.file.name}`, function (err) {
+        //moving the uploaded file with the specific name to the specified directory
+        if (err) return res.status(500).send(err);
+
+        let fileUrl
+        upload(`public/uploads/${req.files.file.name}`)
+            .then(result => {
+                fs.unlinkSync(`public/uploads/${req.files.file.name}`); //we do this to delete the files from the upload folder in order not to store them here in this project
+
+                fileUrl = result.secure_url
+                return User.findById(req.user._id)
+            })
+            .then(user => {
+                let existingGame = user.progress.find(el => el.game.toString() === id.toString())
+                if (!existingGame) {
+                    existingGame = {
+                        game: id,
+                        steps: [{
+                            // task:
+                            time: new Date(),
+                            file: fileUrl
+                        }]
+                    }
+
+                    user.progress.push(existingGame)
+                } else {
+                    existingGame.steps.push(
+                        {
+                            // task:
+                            time: new Date(),
+                            file: fileUrl
+                        }
+                    )
+                }
+                console.log(user.progress[0])
+                return user.save()
+            }).then(user => {
+                return Game.findById(id).populate("tasks")
+            })
+            .then(game => {
+
+                console.log("LENGTH; ORDER " + game.tasks.length +" " +taskOrder)
+                if (game.tasks.length >= taskOrder) {
+                    let task;
+
+                    game.tasks.forEach(t => {
+                        if (t.order == taskOrder) {
+                            task = t
+                        }
+                    })
+
+
+                    taskOrder++;
+                    res.render("player/player-task", { game, task, taskOrder })
+
+
+                } else {
+                    console.log("FINSIH")
+                    res.render("player/game-finished", { game, taskOrder })
+                }
+
+            });
+    });
 })
 
 player.post('/player-task/:id', (req, res, next) => {
