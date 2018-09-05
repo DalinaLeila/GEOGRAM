@@ -21,7 +21,7 @@
 {{/if}}
 
 {{#each user.games}}
-<p>{{this.title}}</p>
+<a href="/player/game/{{this._id}}">{{this.title}}</a>
 <p>{{this.description}}</p>
 <br><br>
 {{/each}}

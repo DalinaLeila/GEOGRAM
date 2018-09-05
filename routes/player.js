@@ -8,9 +8,11 @@ const { upload } = require('../utils/cloudinary')
 const fs = require('fs')
 
 player.get('/player-overview', (req, res) => {
-    Game.find({}).then(game => {
-        res.render('player/player-overview', { game })
+
+    User.findById(req.user._id).populate("games").then(user => {
+        res.render('player/player-overview', { user })
     })
+
 })
 
 
@@ -23,7 +25,7 @@ player.post('/find-game', (req, res) => {
     const { code } = req.body;
     User.findById(req.user._id).then(user => {
 
-        if (user.games.indexOf(code)==-1) {
+        if (user.games.indexOf(code) == -1) {
 
             Game.findById(code).then(game => {
                 User.findByIdAndUpdate(req.user._id, { $push: { games: game._id } },
@@ -59,18 +61,21 @@ player.post('/find-game', (req, res) => {
 })
 
 
+
 player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
-
+    const taskOrder = 1
     Game.findById(id).then(game => {
-        res.render('player/game', { game })
+        res.render('player/game', { game, taskOrder })
     })
 })
 
-player.get('/player-task/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
+player.get('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
+    let taskOrder = req.params.taskOrder
     let tasks = []
 
+    /*
     Game.findById(id)
         .then(game => {
             const taskRefs = game.tasks
@@ -86,6 +91,19 @@ player.get('/player-task/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
             // console.log('TASKS: ', tasks) //returns empty array???
             res.render('player/player-task', { tasks })
         })
+        */
+
+    Game.findById(id).populate("tasks").then(game => {
+
+        let task = game.tasks[taskOrder - 1]
+        taskOrder++;
+        res.render("player/player-task", { game, task, taskOrder })
+    }
+
+    )
+
+
+
 })
 
 player.post('/player-task/:id', (req, res, next) => {
