@@ -1,20 +1,24 @@
-<h1>
+<link rel='stylesheet' href='/stylesheets/style2.css' />
 
-    Congratulations</h1>
 
-<ol>
-    <li>
-        <img src="http://placeimg.com/250/100/any" alt="">
-        <p>Location</p>
-    </li>
-    <li>
-        <img src="http://placeimg.com/250/100/any" alt="">
-        <p>Location</p>
-    </li>
-    <li>
-        <img src="http://placeimg.com/250/100/any" alt="">
-        <p>Location</p>
-    </li>
-</ol>
+<h1>Congratulations!</h1>
+<section class="cd-timeline js-cd-timeline">
+    <div class="cd-timeline__container">
+        {{#each game.tasks}}
+        <div class="cd-timeline__block js-cd-block">
+            <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+            </div>
 
-<input type="email" placeholder="Email">
+            <div class="cd-timeline__content js-cd-content">
+                <h2>{{this.title}}</h2>
+                <p>{{this.description}}</p>
+                <span class="cd-timeline__date">{{this.location}}</span>
+            </div>
+
+        </div>
+        {{/each}}
+
+
+</section>
+{{#each currentPlayer}}
+<img src="{{this.file}}" alt="" width="100px"> {{/each}}
