@@ -112,7 +112,7 @@ h4 {
 .flex-container-game {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column; }
 
 .flex-container-game h1,
@@ -131,15 +131,15 @@ h4 {
   margin-bottom: 10px; }
 
 #form-container-game {
-  margin-top: 40px;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
-  height: 300px;
+  height: 80vh;
   border-radius: 7px;
   padding: 20px 30px;
   text-align: center;
   color: darkblue;
   font-size: 1rem;
-  width: 70vw; }
+  width: 70vw;
+  margin: 40px auto 0 auto; }
 
 #private {
   margin: 15px 0 15px; }
