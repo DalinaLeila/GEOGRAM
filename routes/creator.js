@@ -180,6 +180,13 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
   });
 });
 
+
+//delete games
+
+creator.get("/:id/delete-game", (req, res, next) =>{
+  
+})
+
 creator.get("/invite-friends", (req, res, next) => {
   res.render("creator/invite-friends");
 });
