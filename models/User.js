@@ -13,8 +13,24 @@ const userSchema = new Schema({
   },
   googleId: String,
   createdGames: [Schema.Types.ObjectId],
-  games: [{type: Schema.Types.ObjectId, ref: "Game"}],
-  uploads: [Object]
+  games: [{type:Schema.Types.ObjectId,
+   ref: "Game"}],
+  progress: [{
+    game: {
+      type: Schema.Types.ObjectId,
+      ref: 'Game'
+    },
+    steps: [{
+      task: {
+        type: Schema.Types.ObjectId,
+        ref: 'Task'
+      },
+      time: Date,
+      file: String,
+    }]
+  }]
+}, {
+  usePushEach: true
 });
 
 module.exports = mongoose.model("User", userSchema);
