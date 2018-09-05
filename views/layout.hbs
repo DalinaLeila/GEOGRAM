@@ -3,6 +3,7 @@
 
 <head>
   <title>GEOGAME</title>
+  <link rel="stylesheet" href="/stylesheets/animate.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
 
 <body>
 
-  <nav>
+  <nav class="fade-in">
     <ul>
       <li><a href="/auth/logout">Logout</a></li>
       <li><a href="/creator/creator-overview">Create</a></li>
@@ -25,8 +26,9 @@
   </nav>
 
   {{{body}}}
+  <script src='/javascripts/animate.js'></script>
   <script src='/javascripts/script.js'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&libraries=places&callback=initAutocomplete"
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&libraries=places&callback=initAutocomplete"
     async defer></script>
 </body>
 

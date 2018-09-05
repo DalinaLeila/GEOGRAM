@@ -2,21 +2,23 @@
   <source src="/images/Draw-Something.mp4" type="video/mp4">
 </video>
 
-<div class="logo">
+<div class="logo fade-in">
   <h1 class="logo-title">GEOGAME</h1>
   <h2><i>The fun way to experience a city</i></h2>
 </div>
 
-<div class="flex-container">
-  <form action="/auth/login" method="POST" id="form-container">
+<div class="flex-container login-div">
+  <form action="/auth/login" method="POST" id="form-container" class="fade-in">
     <h3 class="title">Login</h3>
-    <label for="username">Email</label>
-    <input id="email" type="email" name="username" placeholder="Your email">
+    <div class="align">
+      <label for="username" id="first">Email</label>
+      <input id="email" type="email" name="username" placeholder="Your email">
 
-    <br><br>
+      <br><br>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Your password">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+    </div>
     <br> {{#if message }}
     <div class="error-message">{{ message }}</div>
     {{/if}}

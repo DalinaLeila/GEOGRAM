@@ -8,15 +8,14 @@
   }
 </style>
 
-<div>
-  <a href="/creator/game-details"><button class="btn-newGame">NEW GAME</button></a>
-  <h3>Created Games</h3>
-  <p>list of games</p>
 
-  {{#if games}} {{#each games}}
+<div class="flex-container-col fade-in">
+  <h1 class="first-flex-item">Created Games</h1> <br />
+  <h2>Your games</h2> <br /> {{#if games}} {{#each games}}
   <a href="/creator/{{this._id}}/edit-game-details">{{this.title}}</a>
   <br>
   <br> {{/each}} {{/if}}
+  <a href="/creator/game-details" class="last-flex-item"><button class="btn-newGame">NEW GAME</button></a>
 
 
 

@@ -12,13 +12,15 @@
 <div class="flex-container">
   <form action="/auth/signup" method="POST" id="form-container">
     <h3 class="title">Signup</h3>
-    <label for="email">Email</label>
-    <input id="email" type="email" name="email" placeholder="Your Email">
+    <div class="align">
+      <label for="email" id="first">Email</label>
+      <input id="email" type="email" name="email" placeholder="Your Email">
 
-    <br><br>
+      <br><br>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" placeholder="Your password">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+    </div>
     <br> {{#if message }}
     <div class="error-message">{{ message }}</div>
     {{/if}}

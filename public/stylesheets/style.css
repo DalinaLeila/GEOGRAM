@@ -4,7 +4,8 @@
   padding: 0; }
 
 body {
-  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
+  font: 15px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif;
+  margin: 0; }
 
 .logo {
   margin: 40px;
@@ -71,9 +72,27 @@ li a {
 li a:hover {
   background-color: #00b7ff; }
 
+nav {
+  height: 30px; }
+
+h1,
+h2,
+h3,
+h4 {
+  color: #fff;
+  font-weight: bold; }
+
 .flex-container {
   display: flex;
   justify-content: center; }
+
+.flex-container-col {
+  height: calc(100vh - 30px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* align-content: center; */
+  align-items: center; }
 
 .title {
   font-size: 1.5em;
@@ -103,13 +122,27 @@ li a:hover {
   text-align: center;
   color: black; }
 
+.align {
+  text-align: right; }
+
+#first {
+  padding-right: 10px; }
+
 .account-message {
   color: #00b7ff;
   font-size: 0.9em; }
 
+.first-flex-item {
+  margin-bottom: auto;
+  padding-top: 40px; }
+
+.last-flex-item {
+  margin-bottom: 40px;
+  margin-top: auto; }
+
 @media only screen and (max-width: 768px) {
   body {
-    font: 10px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
+    font: 10px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif; }
   .logo {
     font-size: 0.7em;
     margin: 40px;
