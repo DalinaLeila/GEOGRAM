@@ -1,9 +1,11 @@
-{{!-- {{#each tasks}} --}}
-<p>{{tasks.[0].location}}</p>
-<p>{{tasks.[0].description}}</p>
-{{!-- {{/each}} --}}
+
+<p>{{task.title}}</p>
+<p>{{task.description}}</p>
+
 
 <form action="/player/player-task/{{tasks.1._id}}" method="POST" enctype="multipart/form-data">
   <input type="file" name="file" id="upload">
   <button type="submit">Submit</button>
 </form>
+
+<a href="/player/{{game._id}}/player-task/{{taskOrder}}"><button>Next</button></a>

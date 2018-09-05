@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
   googleId: String,
   createdGames: [Schema.Types.ObjectId],
-  games: [Schema.Types.ObjectId],
+  games: [{type: Schema.Types.ObjectId, ref: "Game"}],
   uploads: [Object]
 });
 
