@@ -70,6 +70,7 @@ creator.post('/:id/edit-game-details', ensureLogin.ensureLoggedIn(), (req, res, 
 
 creator.get('/:id/add-task', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     let id = req.params.id
+
     res.render('creator/add-task', { id })
 })
 
@@ -89,12 +90,14 @@ creator.post('/:id/add-task', (req, res, next) => {
             Game.findByIdAndUpdate(id, { $push: { tasks: task._id } }, { new: true }).then(game => {
                 Game.findById(id)
                     .populate('tasks')
-                    .then(game =>
+                    .then(game => {
+                        const title = game.title
                         res.render('creator/tasks-overview', {
                             id: id,
-                            tasks: game.tasks
+                            tasks: game.tasks,
+                            title
                         })
-                    )
+                    })
             })
         })
 })

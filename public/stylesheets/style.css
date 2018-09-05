@@ -141,6 +141,9 @@ h4 {
   width: 70vw;
   margin: 40px auto 0 auto; }
 
+#form-container-game > h2 {
+  margin-bottom: 20px; }
+
 #private {
   margin: 15px 0 15px; }
 
