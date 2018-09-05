@@ -133,6 +133,23 @@ h4 {
     flex-direction: column;
 }
 
+.flex-container-game h1,
+.flex-container-game h2,
+.flex-container-game h3 {
+    color: darkblue;
+}
+
+.btn-game-details {
+    width: 150px;
+    height: 35px;
+    background-color: #00b7ff;
+    border: 2px solid #00b7ff;
+    border-radius: 12px;
+    color: white;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
 #form-container-game {
     margin-top: 40px;
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
@@ -153,9 +170,10 @@ h4 {
     text-align: center;
     margin-left: 20px;
     width: 200px;
-    height: 30px;
+    height: 40px;
     background-color: transparent;
-    color: white;
+    color: darkblue;
+    font-size: 1rem;
     border: 2px solid #cf009c;
     border-radius: 7px;
     margin-bottom: 10px;
@@ -267,11 +285,13 @@ input:focus {
     color: white;
     font-size: 1rem;
     margin-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
 
 .btn-newGame:hover {
-    background-color: #cf009c;
-    border: 2px solid #cf009c;
+    background-color: darkblue;
+    border: 2px solid darkblue;
+    transform: scale(1.05);
 }
 
 .btn-next {
@@ -354,12 +374,13 @@ a.link-create {
     color: white;
     font-size: 1rem;
     margin-bottom: 10px;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .title-desc-section:hover {
     background-color: #00b7ff;
     border: 2px solid #00b7ff;
+    opacity: 1;
     transform: scale(1.1);
 }
 
