@@ -13,6 +13,52 @@ player.get('/player-overview', (req, res) => {
     })
 })
 
+
+
+
+
+//search for games
+
+player.post('/find-game', (req, res) => {
+    const { code } = req.body;
+    User.findById(req.user._id).then(user => {
+
+        if (user.games.indexOf(code)==-1) {
+
+            Game.findById(code).then(game => {
+                User.findByIdAndUpdate(req.user._id, { $push: { games: game._id } },
+                    { new: true }).then(
+                        user => {
+
+                            User.findById(req.user._id)
+                                .populate("games")
+                                .then(user => {
+                                    res.render('player/player-overview', { user })
+                                })
+
+                        }
+                    )
+
+            }).catch(err => {
+                User.findById(req.user._id).populate("games").then(user => {
+                    res.render('player/player-overview', { user, message: "Invalid game code!" })
+                })
+
+
+            })
+
+
+        } else {
+            User.findById(req.user._id).populate("games").then(user => {
+                res.render('player/player-overview', { user, message: "Game already displayed!" })
+            })
+        }
+    })
+
+
+})
+
+
 player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
 
@@ -48,7 +94,7 @@ player.post('/player-task/:id', (req, res, next) => {
     // const { name } = req.body
     const path = `public/uploads/${file.name}`
 
-    file.mv(path, function(err) {
+    file.mv(path, function (err) {
         if (err) return res.status(500).send(err)
 
         //uploads to cloudinary

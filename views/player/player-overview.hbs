@@ -10,11 +10,27 @@
 
 
 <h3>Your Private games</h3>
-{{#if this.private}} {{!--
-<form action="">
-  <input type="text" name="enter-code" id="enter-code" placeholder="Enter Code">
+
+<form action="/player/find-game" method="POST">
+  <input type="text" name="code" id="enter-code" placeholder="Enter game code">
   <button type="submit">Enter</button>
-</form> --}} {{/if}}
+</form> 
+
+{{#if message}}
+<div class="error-message">{{message}}</div>
+{{/if}}
+
+{{#each user.games}}
+<p>{{this.title}}</p>
+<p>{{this.description}}</p>
+<br><br>
+{{/each}}
+
+
+
+<!--
 <h3>Suggested games</h3><br><br> {{#each game}}
 <h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
 {{/each}}
+
+-->
