@@ -1,11 +1,20 @@
- {{#if this.private}}
-<h3>Your Private games</h3>
+<style>
+  body {
+    background: url("/images/player2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
+
+<h3>Your Private games</h3>
+{{#if this.private}} {{!--
 <form action="">
   <input type="text" name="enter-code" id="enter-code" placeholder="Enter Code">
   <button type="submit">Enter</button>
-</form>
-{{/if}}
+</form> --}} {{/if}}
 <h3>Suggested games</h3><br><br> {{#each game}}
 <h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
 {{/each}}

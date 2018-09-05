@@ -1,13 +1,23 @@
-<a href="/creator/game-details"><button>NEW GAME</button></a>
+<style>
+  body {
+    background: url("/images/creator2.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
-<h3>Created Games</h3>
+<div>
+  <a href="/creator/game-details"><button class="btn-newGame">NEW GAME</button></a>
+  <h3>Created Games</h3>
+  <p>list of games</p>
 
-<p>list of games</p>
+  {{#if games}} {{#each games}}
+  <a href="/creator/{{this._id}}/edit-game-details">{{this.title}}</a>
+  <br>
+  <br> {{/each}} {{/if}}
 
-{{#if games}}
-{{#each games}}
-<a href="/creator/{{this._id}}/edit-game-details">{{this.title}}</a>
-<br>
-<br>
-{{/each}}
-{{/if}}
+
+
+</div>

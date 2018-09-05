@@ -1,4 +1,23 @@
-<h2>Welcome to {{game.title}}</h2>
-<p>{{game.description}}</p>
+<style>
+  body {
+    background: url("/images/player1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
-<a href="/player/player-task/{{game._id}}"><button class="btn-play">PLAY</button></a>
+  }
+</style>
+
+
+<div id="game-intro">
+
+  <h1>Ready to begin your journey?</h1>
+  <h2>Welcome to the game: {{game.title}}</h2>
+  <i>
+    <p>{{game.description}}</p>
+  </i>
+
+  <a href="/player/player-task/{{game._id}}"><button class="btn-play">PLAY</button></a>
+
+</div>
