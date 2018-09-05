@@ -30,14 +30,14 @@ player.get('/player-task/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
             const taskRefs = game.tasks
             taskRefs.forEach(taskRef => {
                 Task.findById(taskRef).then(task => {
-                    // console.log(task) //returns obj
+                    // task.sort(task.order)
+                    console.log(task) //returns obj
                     tasks.push(task)
                 })
             })
         })
         .then(() => {
-            // console.log(tasks)   //returns empty array???
-            //***how to only show current task????***
+            // console.log('TASKS: ', tasks) //returns empty array???
             res.render('player/player-task', { tasks })
         })
 })
@@ -61,10 +61,11 @@ player.post('/player-task/:id', (req, res, next) => {
             .then(task => {
                 //deletes local copy
                 fs.unlinkSync(path)
-                // res.send(task)
+                res.send(task)
             })
     })
-    res.redirect('/player/player-task/:id', { id })
+    // res.redirect('/player/player-task/:id', { id })
+    res.redirect('back')
 })
 
 player.get('/finished', ensureLogin.ensureLoggedIn(), (req, res) => {
