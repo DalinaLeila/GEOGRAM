@@ -115,11 +115,11 @@ h4 {
     margin: 15px 0;
     display: flex;
     justify-content: center;
-    color: white;
+    color: darkblue;
 }
 
 #form-container {
-    background-image: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.6));
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
     border-radius: 7px;
     padding: 0 30px;
     text-align: center;
@@ -127,6 +127,10 @@ h4 {
 }
 
 .flex-container-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: 50px;
     width: 450px;
 }
@@ -155,8 +159,21 @@ h4 {
 }
 
 .first-flex-item {
-    margin-bottom: auto;
+    text-align: center;
+    margin-bottom: 40px;
     padding-top: 40px;
+}
+
+.first-flex-item h1 {
+    margin-bottom: 20px;
+}
+
+.flex-container-creator {
+    height: calc(100vh - 30px);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .last-flex-item {
@@ -280,4 +297,47 @@ input:focus {
 a.link-create {
     text-decoration: none;
     font-size: 1.2rem;
+}
+
+.content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.flex-player-overview {
+    height: calc(100vh - 30px);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* align-content: center; */
+    align-items: center;
+}
+
+.title-desc-section {
+    width: 100vw;
+    height: 60px;
+    background-color: darkblue;
+    border: 2px solid darkblue;
+    opacity: 0.8;
+    // border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.title-desc-section div {
+    font-weight: bold;
+}
+
+.title-desc-section a {
+    text-decoration: none;
+}
+
+#small-text {
+    font-size: 0.8rem;
+    font-weight: normal;
 }
