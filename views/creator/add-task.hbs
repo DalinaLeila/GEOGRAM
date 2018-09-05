@@ -13,26 +13,28 @@
     <h2>Step 2 - Add task</h2>
 
     <label for="title">Task Title:</label>
-    <input type="text" name="title">
+    <input class="input-style" placeholder="Enter a title" type="text" name="title">
     <label for="location">Location:</label>
 
-    <input type="text" id="location" name="location">
+    <input class="input-style" type="text" id="location" name="location">
+    <br>
 
-    <label for="taskType">Select the task type:</label>
-    <select name="taskType">
+    <label for="taskType">Select task type:</label><br>
+    <select class="custom-select" style="width: 200px" name="taskType">
       <option value="text" selected>Text</option>
       <option value="photo">Photo</option>
       <option value="video">Video</option>
       <option value="audio">Audio</option>
     </select>
+    <br>
 
     <label for="description">Describe the task:</label>
-    <textarea rows="4" cols="50" name="description">
+    <textarea name="description">
 Put your task description here.
-</textarea>
+</textarea><br>
 
-    <button type="submit">Save</button>
-    <a href="/creator/tasks-overview/{{this.id}}"><button>Cancel</button></a>
+    <button class="btn-next" type="submit">Save</button>
+    <a href="/creator/tasks-overview/{{this.id}}"><button class="btn-next">Cancel</button></a>
   </form>
 
 </div>

@@ -131,6 +131,7 @@ h4 {
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    min-height: calc(100vh - 30px);
 }
 
 .flex-container-game h1,
@@ -152,7 +153,7 @@ h4 {
 
 #form-container-game {
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
-    height: 80vh;
+    min-height: 80vh;
     border-radius: 7px;
     padding: 20px 30px;
     text-align: center;
@@ -166,13 +167,27 @@ h4 {
     margin-bottom: 20px;
 }
 
+.order-input {
+    width: 30px;
+    text-align: center;
+    height: 20px;
+    border: 1px solid darkblue;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.order-label {
+    font-family: sans-serif;
+    font-size: 0.8rem;
+}
+
 #private {
     margin: 15px 0 15px;
 }
 
 .input-style {
     text-align: center;
-    margin-left: 20px;
+    // margin-left: 20px;
     width: 200px;
     height: 40px;
     background-color: transparent;
@@ -181,6 +196,17 @@ h4 {
     border: 2px solid #cf009c;
     border-radius: 7px;
     margin-bottom: 10px;
+}
+
+textarea {
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    color: darkblue;
+    background-color: transparent;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
 }
 
 .align {
@@ -225,9 +251,9 @@ h4 {
     width: 150px;
     height: 30px;
     background-color: #fff;
-    opacity: 0.6;
+    opacity: 0.7;
     color: white;
-    border: 2px solid #cf009c;
+    border: 2px solid #00b7ff;
     border-radius: 5px 0 0 5px;
     margin-right: -5px;
 }
@@ -235,8 +261,8 @@ h4 {
 .btn-game-code {
     width: 50px;
     height: 34px;
-    background-color: #cf009c;
-    border: 2px solid #cf009c;
+    background-color: #00b7ff;
+    border: 2px solid #00b7ff;
     border-radius: 0 5px 5px 0;
     color: white;
     margin-bottom: 10px;
@@ -307,11 +333,13 @@ input:focus {
     color: white;
     font-size: 1em;
     margin-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
 
 .btn-next:hover {
-    background-color: #cf009c;
-    border: 2px solid #cf009c;
+    background-color: darkblue;
+    border: 2px solid darkblue;
+    transform: scale(1.05);
 }
 #game-intro {
     margin-top: 150px;
@@ -426,4 +454,58 @@ div.game-details-input {
     color: white;
     font-size: 1rem;
     margin-top: 10px;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+.custom-select select {
+    display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+    background-color: DodgerBlue;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: '';
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
 }
