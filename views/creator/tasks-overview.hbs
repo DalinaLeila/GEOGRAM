@@ -9,21 +9,22 @@
 </style>
 
 <div class="flex-container-game" id="form-container-game">
-
   <h2>Game name</h2>
-
+  <h3>All tasks</h3>
+  <a href="/creator/{{id}}/add-task"><button>Add task</button></a>
   <form action="/creator/{{id}}/save-order" method="POST">
     {{#each tasks}}
-
     <p>{{this.title}}</p>
-
     <input type="number" id="order" name="{{this.id}}" value="{{this.order}}" min="1">
     <br><br>
     <a href="/creator/{{../id}}/edit-task/{{this._id}}"><button>Edit</button></a>
     <a href="/creator/{{../id}}/delete-task/{{this._id}}"><button>Delete</button></a>
-
     <br><br> {{/each}}
     <button type="submit">Save order</button>
   </form>
   <br><br>
   <a href="/creator/invite-friends"><button>Invite friends</button></a>
+
+
+
+</div>
