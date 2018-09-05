@@ -1,22 +1,29 @@
-<h2>Game name</h2>
+<style>
+  body {
+    background: url("/images/creator1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
-<h3>All tasks</h3>
+<div class="flex-container-game" id="form-container-game">
 
-<a href="/creator/{{id}}/add-task"><button>Add task</button></a>
+  <h2>Game name</h2>
 
-<form action="/creator/{{id}}/save-order" method="POST">
-{{#each tasks}}
+  <form action="/creator/{{id}}/save-order" method="POST">
+    {{#each tasks}}
 
-<p>{{this.title}}</p> 
+    <p>{{this.title}}</p>
 
-<input type="number" id="order" name="{{this.id}}" value="{{this.order}}" min="1">
-<br><br>
-<a href="/creator/{{../id}}/edit-task/{{this._id}}"><button>Edit</button></a>
-<a href="/creator/{{../id}}/delete-task/{{this._id}}"><button>Delete</button></a>
+    <input type="number" id="order" name="{{this.id}}" value="{{this.order}}" min="1">
+    <br><br>
+    <a href="/creator/{{../id}}/edit-task/{{this._id}}"><button>Edit</button></a>
+    <a href="/creator/{{../id}}/delete-task/{{this._id}}"><button>Delete</button></a>
 
-<br><br>
-{{/each}}
-<button type="submit">Save order</button>
-</form>
-<br><br>
-<a href="/creator/invite-friends"><button>Invite friends</button></a>
+    <br><br> {{/each}}
+    <button type="submit">Save order</button>
+  </form>
+  <br><br>
+  <a href="/creator/invite-friends"><button>Invite friends</button></a>

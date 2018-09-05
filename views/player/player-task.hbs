@@ -1,6 +1,6 @@
 {{!-- {{#each tasks}} --}}
-<p>{{tasks.1.location}}</p>
-<p>{{tasks.1.description}}</p>
+<p>{{tasks.[0].location}}</p>
+<p>{{tasks.[0].description}}</p>
 {{!-- {{/each}} --}}
 
 <form action="/player/player-task/{{tasks.1._id}}" method="POST" enctype="multipart/form-data">

@@ -1,32 +1,44 @@
-<h1>Step 2 - Add task
-  </h2>
-<pre>{{this}}</pre>
-  <form action="/creator/{{this.id}}/add-task" method="post">
+<style>
+  body {
+    background: url("/images/creator1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
 
-    <label for="title">Task Title:</label>
-    <input type="text" name="title">
-    <label for="location">Location:</label>
+<div class="flex-container-game">
+  <form action="/creator/{{this.id}}/add-task" method="post" id="form-container-game">
+    <h2>Step 2 - Add task</h2>
 
-    <input type="text" id="location" name="location">
+    <label for=" title ">Task Title:</label>
+    <input type="text " name="title ">
+    <label for="location ">Location:</label>
 
-    <label for="taskType">Select the task type:</label>
-    <select name="taskType">
-      <option value="text" selected>Text</option>
-      <option value="photo">Photo</option>
-      <option value="video">Video</option>
-      <option value="audio">Audio</option>
+    <input type="text " id="location " name="location ">
+
+    <label for="taskType ">Select the task type:</label>
+    <select name="taskType ">
+      <option value="text " selected>Text</option>
+      <option value="photo ">Photo</option>
+      <option value="video ">Video</option>
+      <option value="audio ">Audio</option>
     </select>
 
-    <label for="description">Describe the task:</label>
-    <textarea rows="4" cols="50" name="description">
+    <label for="description ">Describe the task:</label>
+    <textarea rows="4 " cols="50 " name="description ">
 Put your task description here.
 </textarea>
 
-    <button type="submit">Save</button>
-    <a href="/creator/tasks-overview/{{this.id}}"><button>Cancel</button></a>
+    <button type="submit ">Save</button>
+    <a href="/creator/tasks-overview/{{this.id}} "><button>Cancel</button></a>
   </form>
 
+</div>
 
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&libraries=places&callback=initAutocomplete"
-    async defer></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&libraries=places&callback=initAutocomplete "
+  async defer></script>
