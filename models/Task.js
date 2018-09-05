@@ -20,6 +20,7 @@ const taskSchema = new Schema({
         type: String,
         required: true
     },
+    
     order: {
         type: Number,
         default: 1

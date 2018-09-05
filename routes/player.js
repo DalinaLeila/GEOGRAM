@@ -34,7 +34,7 @@ player.post('/find-game', (req, res) => {
 
                             User.findById(req.user._id)
                                 .populate("games")
-                                .then(user => {                             
+                                .then(user => {
                                     res.render('player/player-overview', { user })
                                 })
 
@@ -84,23 +84,16 @@ player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
             game.tasks.forEach(t => {
                 if (t.order == 1) {
                     task = t
+                    
                 }
             })
 
 
-            res.render("player/player-task", { game, task, taskOrder })
-
-
+            res.render("player/player-task", { game, task, taskOrder, locationStr: task.location })
         } else {
             res.render("player/game-finished", { game, taskOrder })
         }
-
-    }
-
-    )
-
-
-
+    })
 })
 
 
@@ -152,7 +145,7 @@ player.post('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, r
             })
             .then(game => {
 
-                console.log("LENGTH; ORDER " + game.tasks.length +" " +taskOrder)
+                console.log("LENGTH; ORDER " + game.tasks.length + " " + taskOrder)
                 if (game.tasks.length >= taskOrder) {
                     let task;
 
@@ -162,9 +155,9 @@ player.post('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, r
                         }
                     })
 
-
+                    locationStr = task.location
                     taskOrder++;
-                    res.render("player/player-task", { game, task, taskOrder })
+                    res.render("player/player-task", { game, task, taskOrder, locationStr })
 
 
                 } else {
