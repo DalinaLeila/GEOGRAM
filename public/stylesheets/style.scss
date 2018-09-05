@@ -101,7 +101,7 @@ h4 {
 }
 
 .flex-container-col {
-    height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -204,7 +204,7 @@ h4 {
 }
 
 .flex-container-creator {
-    height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -356,7 +356,7 @@ a.link-create {
 }
 
 .flex-player-overview {
-    height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;

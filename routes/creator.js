@@ -105,7 +105,8 @@ creator.get('/:id/tasks-overview', ensureLogin.ensureLoggedIn(), (req, res, next
     game = Game.findById(id)
         .populate('tasks')
         .then(game => {
-            res.render('creator/tasks-overview', { game, id: id, tasks: game.tasks })
+            const title = game.title
+            res.render('creator/tasks-overview', { game, id: id, tasks: game.tasks, title })
         })
 })
 
