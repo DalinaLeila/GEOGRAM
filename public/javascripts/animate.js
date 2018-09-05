@@ -1,6 +1,7 @@
 const link = document.querySelector('.link-create')
 const body = document.querySelector('body')
 const btnLogin = document.querySelector('.btn-login')
+const btnNewGame = document.querySelector('a.animate-link')
 
 link.addEventListener('click', evt => {
     evt.preventDefault()
@@ -11,11 +12,15 @@ link.addEventListener('click', evt => {
     }, 500)
 })
 
-btnLogin.addEventListener('click', evt => {
+btnNewGame.addEventListener('click', evt => {
     evt.preventDefault()
     body.classList.add('fade-out')
 
     setTimeout(() => {
-        window.location = btnLogin.href
+        window.location = btnNewGame.href
     }, 500)
 })
+
+// btn.addEventListener('click', () => {
+//     body.classList.add('fade-out')
+// })

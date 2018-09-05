@@ -128,21 +128,37 @@ h4 {
 
 .flex-container-game {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-left: 50px;
-    width: 450px;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #form-container-game {
     margin-top: 40px;
-    background-image: linear-gradient(to top, transparent, rgba(255, 255, 255, 1));
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
     height: 300px;
     border-radius: 7px;
     padding: 20px 30px;
     text-align: center;
-    color: black;
+    color: darkblue;
+    font-size: 1rem;
+    width: 70vw;
+}
+
+#private {
+    margin: 15px 0 15px;
+}
+
+.input-style {
+    text-align: center;
+    margin-left: 20px;
+    width: 200px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid #cf009c;
+    border-radius: 7px;
+    margin-bottom: 10px;
 }
 
 .align {
@@ -154,8 +170,9 @@ h4 {
 }
 
 .account-message {
-    color: #00b7ff;
+    color: darkblue;
     font-size: 0.9em;
+    margin-bottom: 20px;
 }
 
 .first-flex-item {
@@ -183,14 +200,24 @@ h4 {
 
 #enter-code {
     text-align: center;
-    margin-left: 20px;
     width: 150px;
     height: 30px;
     background-color: #fff;
     opacity: 0.6;
     color: white;
     border: 2px solid #cf009c;
-    border-radius: 7px;
+    border-radius: 5px 0 0 5px;
+    margin-right: -5px;
+}
+
+.btn-game-code {
+    width: 50px;
+    height: 34px;
+    background-color: #cf009c;
+    border: 2px solid #cf009c;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -248,8 +275,8 @@ input:focus {
 }
 
 .btn-next {
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 45px;
     background-color: #00b7ff;
     border: 2px solid #00b7ff;
     border-radius: 12px;
@@ -340,4 +367,31 @@ a.link-create {
 #small-text {
     font-size: 0.8rem;
     font-weight: normal;
+}
+
+.game-details-input {
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: #fff;
+    opacity: 0.6;
+    color: darkblue;
+    border: 2px solid #cf009c;
+    border-radius: 5px;
+    margin: 0 -5px 15px 0;
+}
+
+div.game-details-input {
+    margin-bottom: 15px;
+}
+
+.game-details-btn {
+    width: 150px;
+    height: 40px;
+    background-color: #00b7ff;
+    border: 2px solid #00b7ff;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
 }

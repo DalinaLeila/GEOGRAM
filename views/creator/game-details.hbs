@@ -10,17 +10,14 @@
 
 
 
+
 <div class="flex-container-game">
-
   <form action="/creator/game-details" method="post" id="form-container-game">
-    <h2>Step 1 - Game Details</h2>
-    <label for="title">Game Title</label>
-    <input type="text" name="title" id="game-title"><br>
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="game-description"><br>
+    <h1 class="title">Step 1 - Game Details</h1>
+    <input type="text" name="title" id="game-title" placeholder="Game Title" class="input-style"><br>
+    <input type="text" name="description" id="game-description" placeholder="Description" class="input-style"><br>
     <label for="private">Private?</label>
-    <input type="checkbox" name="private" id="game-privacy"><br>
-    <button type="submit" class="btn-next">Tasks</button>
+    <input type="checkbox" name="private" id="private"><br>
+    <button type="submit" class="btn-next">Submit</button>
   </form>
-
 </div>
