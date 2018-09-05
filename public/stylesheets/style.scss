@@ -354,6 +354,13 @@ a.link-create {
     color: white;
     font-size: 1rem;
     margin-bottom: 10px;
+    transition: all 1s ease-in-out;
+}
+
+.title-desc-section:hover {
+    background-color: #00b7ff;
+    border: 2px solid #00b7ff;
+    transform: scale(1.1);
 }
 
 .title-desc-section div {
