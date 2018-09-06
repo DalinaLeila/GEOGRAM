@@ -11,12 +11,10 @@
   <form action="/auth/login" method="POST" id="form-container" class="fade-in">
     <h3 class="title">Login</h3>
     <div class="align">
-      <label for="username" id="first">Email</label>
+      {{!-- <label for="username" id="first">Email</label> --}}
       <input id="email" type="email" name="username" placeholder="Your email">
 
-      <br><br>
-
-      <label for="password">Password</label>
+      <br><br> {{!-- <label for="password">Password</label> --}}
       <input id="password" type="password" name="password" placeholder="Your password">
     </div>
     <br> {{#if message }}

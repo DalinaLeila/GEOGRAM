@@ -28,6 +28,7 @@ body {
 #password {
   text-align: center;
   margin-left: 20px;
+  margin-right: 20px;
   width: 150px;
   height: 30px;
   background-color: transparent;
@@ -113,6 +114,7 @@ h4 {
   font-size: 1.5em;
   font-weight: bold;
   margin: 25px 0;
+  color: #cf009c;
   display: flex;
   justify-content: center; }
 
