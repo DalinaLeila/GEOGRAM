@@ -84,7 +84,7 @@ player.get("/:id/player-task/1", ensureLogin.ensureLoggedIn(), (req, res) => {
           }
         });
 
-        res.render("player/player-task", { game, task, taskOrder });
+        res.render("player/player-task", { game, task, taskOrder, locationString: JSON.stringify(task.location) });
       } else {
         res.render("player/game-finished", { game, taskOrder });
       }
@@ -152,7 +152,7 @@ player.post(
             });
 
             taskOrder++;
-            res.render("player/player-task", { game, task, taskOrder });
+            res.render("player/player-task", { game, task, taskOrder, locationString: JSON.stringify(task.location) });
           } else {
             const currentPlayer = req.user.progress[0].steps;
             res.render("player/game-finished", {
