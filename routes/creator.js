@@ -196,7 +196,12 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
 
 //delete games
 
-creator.get("/:id/delete-game", (req, res, next) => {});
+creator.get("/:id/delete-game", (req, res, next) => {
+  let id = req.params.id
+  Game.findByIdAndRemove(id).then(game=>{
+    res.redirect("/creator/creator-overview")
+  })
+});
 
 creator.post("/:id/save-order", (req, res, next) => {
   const id = req.params.id;
