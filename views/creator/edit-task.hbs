@@ -11,14 +11,14 @@
 <div class="flex-container-game">
 
   <form action="/creator/{{id}}/edit-task/{{task._id}}" method="post" id="form-container-game">
-    <h2>Step 2 - Add task</h2>
+    <h2>Edit task</h2>
 
-    <input type="text" name="title" value="{{task.title}}">
-    <input type="text" id="location" name="location" value="{{task.location}}">
+    <input class="input-style" type="text" name="title" value="{{task.title}}">
+    <input class="input-style" type="text" id="location" name="location" maxlength=10 value="{{task.location}}">
 
     <textarea rows="4" cols="50" name="description">{{task.description}}</textarea>
 
-    <button type="submit">Update</button>
+    <button class="btn-next" type="submit">Update</button>
     <a href="/creator/tasks-overview/{{id}}"><button class="btn-next">Cancel</button></a>
   </form>
 

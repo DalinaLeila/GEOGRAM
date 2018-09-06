@@ -8,3 +8,4 @@ npm-debug.log
 .env
 
 config.js
+public/stylesheets/style\.css\.map

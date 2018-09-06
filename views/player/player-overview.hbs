@@ -8,18 +8,29 @@
   }
 </style>
 
+<div class="container">
+  <div class="flex-game-code fade-in">
+    <h1 class="header-margin">Your Private games</h1>
+    <form action="/player/find-game" method="POST">
+      <input type="text" name="code" id="enter-code" placeholder="Enter game code">
+      <button type="submit" class="btn-game-code">Enter</button>
+    </form>
+  </div>
 
-<div class="flex-player-overview fade-in">
-  <h1>Your Private games</h1>
+  <div class="flex-player-overview fade-in">
 
-  <form action="/player/find-game" method="POST">
-    <input type="text" name="code" id="enter-code" placeholder="Enter game code">
-    <button type="submit" class="btn-game-code">Enter</button>
-  </form>
+    {{#if message}}
+    <div class="error-message">{{message}}</div>
+    {{/if}} {{#each user.games}} {{#if message}}
+    <div class="error-message">{{message}}</div>
+    {{/if}} {{#each user.games}}
 
-  {{#if message}}
-  <div class="error-message">{{message}}</div>
-  {{/if}} {{#each user.games}}
+    <a href="/player/game/{{this._id}}" class="animate-link">
+      <button class="title-desc-section">
+        <div>{{this.title}}</div>
+        <div id="small-text">{{this.description}}</div>
+      </button>
+    </a>
 
   <a href="/player/game/{{this._id}}" class="animate-link">
     <button class="title-desc-section">
