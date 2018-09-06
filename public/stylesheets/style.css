@@ -19,6 +19,10 @@ body {
   margin-top: 20px;
   margin-bottom: 10px; }
 
+#email {
+  position: relative;
+  left: 5px; }
+
 #email,
 #password {
   text-align: center;
@@ -241,7 +245,10 @@ textarea {
     display: flex;
     flex-direction: column;
     color: white;
-    text-align: center; } }
+    text-align: center; }
+  #email {
+    position: relative;
+    left: 3px; } }
 
 #myVideo {
   position: fixed;
@@ -477,5 +484,8 @@ div.game-details-input {
   color: white;
   font-size: 1rem;
   transition: all 1s ease-in-out; }
+
+.signup-link {
+  color: darkblue; }
 
 /*# sourceMappingURL=style.css.map */

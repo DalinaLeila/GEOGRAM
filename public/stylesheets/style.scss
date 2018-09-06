@@ -22,6 +22,11 @@ body {
     margin-bottom: 10px;
 }
 
+#email {
+    position: relative;
+    left: 5px;
+}
+
 #email,
 #password {
     text-align: center;
@@ -280,6 +285,11 @@ textarea {
         flex-direction: column;
         color: white;
         text-align: center;
+    }
+
+    #email {
+        position: relative;
+        left: 3px;
     }
 
     //all phone stuff
@@ -553,4 +563,8 @@ div.game-details-input {
     color: white;
     font-size: 1rem;
     transition: all 1s ease-in-out;
+}
+
+.signup-link {
+    color: darkblue;
 }
