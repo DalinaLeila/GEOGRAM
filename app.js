@@ -14,10 +14,12 @@ const MongoStore = require('connect-mongo')(session)
 const flash = require('connect-flash')
 const fileUpload = require('express-fileupload')
 
+const config= require("./config")
+
 mongoose.Promise = Promise
 mongoose
     .connect(
-        'mongodb://localhost/project2',
+        config.MONGODB_URI,
         { useMongoClient: true }
     )
     .then(() => {
