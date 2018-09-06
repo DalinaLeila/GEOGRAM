@@ -4,7 +4,7 @@
   padding: 0; }
 
 body {
-  font: 15px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif;
+  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
   margin: 0; }
 
 .logo {
@@ -234,7 +234,7 @@ textarea {
 
 @media only screen and (max-width: 768px) {
   body {
-    font: 10px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif; }
+    font: 10px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
   .logo {
     font-size: 0.7em;
     margin: 40px;
@@ -395,11 +395,17 @@ div.game-details-input {
   font-size: 1rem;
   margin-top: 10px; }
 
+<<<<<<< HEAD
 /*the container must be positioned relative:*/
 .custom-select {
   color: darkblue;
   width: 200px;
   height: 40px;
   border: 2px solid #cf009c; }
+=======
+.finish {
+  float: none;
+  margin-left: 50px; }
+>>>>>>> 4a2438ef25632575515765019d9b93e5b2e781ea
 
 /*# sourceMappingURL=style.css.map */

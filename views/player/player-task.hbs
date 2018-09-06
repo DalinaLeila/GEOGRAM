@@ -1,6 +1,27 @@
+<script>var locationString = {{{locationStr}}}</script>
+<p>LocationString: {{locationStr}}</p>
 
 <p>{{task.title}}</p>
 <p>{{task.description}}</p>
+
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+
 
 
 <form action="/player/{{game._id}}/player-task/{{taskOrder}}" method="POST" enctype="multipart/form-data">
@@ -9,4 +30,8 @@
   <button type="submit" value="save">Submit</button>
 </form>
 
-<a href="/player/{{game._id}}/player-task/{{taskOrder}}"><button>Next</button></a>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&callback=initMap">
+    </script>-
+
+
