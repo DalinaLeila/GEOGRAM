@@ -532,4 +532,39 @@ div.game-details-input {
   border-radius: 10px;
   margin-bottom: 10px; }
 
+.flex-container-invite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+  margin-top: 100px; }
+
+#form-container-invite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.btn-delete {
+  width: 150px;
+  height: 40px;
+  background-color: #f95759;
+  border: 2px solid #f95759;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: all 1s ease-in-out; }
+
+.btn-delete:hover {
+  transform: scale(1.15); }
+
+#input-background {
+  background-color: #fff;
+  opacity: 0.75; }
+
+button {
+  font-weight: medium; }
+
 /*# sourceMappingURL=style.css.map */

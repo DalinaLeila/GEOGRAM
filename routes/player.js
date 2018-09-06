@@ -91,7 +91,7 @@ player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
         .populate('tasks')
         .then(game => {
             console.log('TASKS LENGTH: ', game.tasks.length)
-            if (game.tasks.length != 1) {
+            //if (game.tasks.length != 1) {
                 let task
 
                 game.tasks.forEach(t => {
@@ -106,9 +106,9 @@ player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
                     taskOrder,
                     locationString: JSON.stringify(task.location),
                 })
-            } else {
-                res.render('player/game-finished', { game, taskOrder })
-            }
+           // } else {
+            //    res.render('player/game-finished', { game, taskOrder })
+           // }
         })
 })
 
