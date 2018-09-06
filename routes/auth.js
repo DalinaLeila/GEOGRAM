@@ -24,7 +24,7 @@ authRoutes.post(
 
 authRoutes.get("/home", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   // if (!req.session.currentUser) return res.send('Please log in first!')
-  res.render("player/player-overview");
+  res.redirect("/player/player-overview");
 });
 
 authRoutes.get("/signup", (req, res, next) => {
