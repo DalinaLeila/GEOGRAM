@@ -9,7 +9,9 @@
 </style>
 
 <div class="flex-container-game fade-in" id="form-container-game">
-
+  <h2>
+    {{game.title}}
+  </h2>
   <h3>All tasks</h3>
   <a href="/creator/{{id}}/add-task"><button class="btn-game-details">Add task</button></a>
   <form action="/creator/{{id}}/save-order" method="POST">

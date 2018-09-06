@@ -30,11 +30,11 @@ function fillInAddress() {
 function initMap() {
 
   var address = "WeWork Atrium Tower, Eichhornstraße, Berlin"
-  //console.log(locationString)
+  console.log(locationString)
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode(
     {
-      address: address
+      address: locationString
     },
     function (results, status) {
 
