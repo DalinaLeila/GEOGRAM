@@ -37,16 +37,6 @@ creator.post("/game-details", (req, res, next) => {
     });
 });
 
-creator.get(
-  "/:id/edit-game-details",
-  ensureLogin.ensureLoggedIn(),
-  (req, res, next) => {
-    let id = req.params.id;
-    Game.findById(id).then(game => {
-      res.render("creator/edit-game-details", { game });
-    });
-  }
-);
 
 //editing games
 creator.get(

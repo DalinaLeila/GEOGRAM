@@ -1,10 +1,10 @@
 <link rel='stylesheet' href='/stylesheets/style2.css' />
 
-
-<h1>Congratulations!</h1>
+<br>
+<h1 style="color: black; text-align: center;">Congratulations! You finished your journey!</h1>
 <section class="cd-timeline js-cd-timeline">
     <div class="cd-timeline__container">
-        {{#each game.tasks}}
+        {{#each gameSteps}}
         <div class="cd-timeline__block js-cd-block">
             <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
             </div>
@@ -12,11 +12,12 @@
             <div class="cd-timeline__content js-cd-content">
                 <h2>{{this.title}}</h2>
                 <p>{{this.description}}</p>
+                <img src="{{this.file}}" alt="" width="100px">
                 <span class="cd-timeline__date">{{this.location}}</span>
             </div>
 
         </div>
         {{/each}}
+
+
 </section>
-{{#each currentPlayer}}
-<img src="{{this.file}}" alt="" width="100px"> {{/each}}

@@ -43,6 +43,10 @@ body {
     color: darkblue;
 }
 
+.navigation li a {
+    color: black;
+}
+
 .btn-login,
 .btn-signup {
     width: 200px;
@@ -158,9 +162,6 @@ h4 {
 }
 
 #form-container-game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
     min-height: 80vh;
     border-radius: 7px;
@@ -291,11 +292,6 @@ textarea {
         text-align: center;
     }
 
-    #email {
-        position: relative;
-        left: 3px;
-    }
-
     //all phone stuff
 }
 
@@ -405,9 +401,9 @@ a.link-create {
 }
 
 .flex-player-overview {
-    // min-height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     /* align-content: center; */
     align-items: center;
