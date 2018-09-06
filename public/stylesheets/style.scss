@@ -123,10 +123,10 @@ h4 {
 .title {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 15px 0;
+    margin: 25px 0;
     display: flex;
     justify-content: center;
-    color: darkblue;
+    // color: darkblue;
 }
 
 #form-container {
@@ -601,12 +601,12 @@ div.game-details-input {
     border-radius: 12px;
     color: white;
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transition: all 1s ease-in-out;
 }
 
 .btn-delete:hover {
     // background-color: #00b7ff;
     // border: 2px solid #00b7ff;
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
