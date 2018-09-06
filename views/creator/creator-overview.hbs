@@ -11,10 +11,9 @@
 
 <div class="flex-container-creator fade-in">
   <div class="first-flex-item">
-    <h1>Created Games</h1>
     <a href="/creator/game-details" class="animate-link"><button class="btn-newGame">NEW GAME</button></a>
   </div>
-  <h2 class="edit-game-title">Edit Games</h2>
+  <h1>Created Games</h1>
   {{#if games}} {{#each games}}
 
   <a class="link-create" href="/creator/{{this._id}}/edit-game-details"><button class="title-desc-section"><div>{{this.title}}</div>
@@ -22,7 +21,7 @@
         {{this.description}}
       </div>
     </button></a>
-    <a href="/creator/{{this._id}}/delete-game"><class="title-desc-section" button>Delete</button></a>
+  <a href="/creator/{{this._id}}/delete-game"><button class="btn-delete">Delete</button></a>
 
   {{/each}} {{/if}}
 

@@ -1,7 +1,6 @@
-<h2 class="title">Edit Game Details</h2>
-
 <form action="/creator/{{game._id}}/edit-game-details" method="post">
-  <div class="flex-container-col fade-in">
+  <div class="flex-container-col">
+    <h2 class="">Edit Game Details</h2>
     <label for="title">Game Title</label>
     <input class="game-details-input" type="text" name="title" id="game-title" value="{{game.title}}">
     <label for="description">Description:</label>

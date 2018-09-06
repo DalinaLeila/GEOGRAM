@@ -10,38 +10,29 @@
 
 <div class="container">
   <div class="flex-game-code fade-in">
-    <h1 class="header-margin">Your Private games</h1>
+    <h1 class="header-margin">Your Games</h1>
     <form action="/player/find-game" method="POST">
       <input type="text" name="code" id="enter-code" placeholder="Enter game code">
       <button type="submit" class="btn-game-code">Enter</button>
     </form>
-  </div>
-
-  <div class="flex-player-overview fade-in">
-
     {{#if message}}
     <div class="error-message">{{message}}</div>
     {{/if}} {{#each user.games}}
+  </div>
+
+  <div class="fade-in">
 
     <a href="/player/game/{{this._id}}" class="animate-link">
       <button class="title-desc-section">
         <div>{{this.title}}</div>
         <div id="small-text">{{this.description}}</div>
       </button>
-    </a>
 
-    <a href="/player/game/{{this._id}}" class="animate-link">
-      <button class="title-desc-section">
-        <div>{{this.title}}</div>
-        <div id="small-text">{{this.description}}</div>
-      </button>
+
       <a href="/player/game/{{this._id}}/delete-game"><class="title-desc-section" button>Delete</button></a>
-
     </a>
-
     {{/each}}
-
-    <h1>Suggested games</h1> {{#each games}}
+    <h1 class="header-margin flex-game-code">Suggested games</h1> {{#each games}}
     <a href="/player/game/{{this._id}}" class="animate-link">
       <button class="title-desc-section">
         <div>{{this.title}}</div>
@@ -49,5 +40,4 @@
       </button>
     </a>
     {{/each}}
-
   </div>
