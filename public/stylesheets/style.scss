@@ -23,7 +23,7 @@ body {
   margin-top: 20px;
   margin-bottom: 10px;
   color: white;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", "Julius Sans One";
 }
 
 #email {
@@ -70,7 +70,6 @@ body {
 
 a {
   color: #00b7ff;
-  font-weight: bolder;
 }
 
 ul {
@@ -609,18 +608,6 @@ div.game-details-input {
 .header-margin {
   margin-bottom: 25px;
 }
-#history-game {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.width-history a {
-  color: white;
-}
-.width-history {
-  text-align: center;
-  height: 30px;
-}
 
 .btn-delete {
   background-color: #cf009c;
@@ -647,28 +634,19 @@ div.game-details-input {
 }
 
 .btn-delete {
-  width: 150px;
-  height: 40px;
-  background-color: #f95759;
-  border: 2px solid #f95759;
+  width: 50px;
+  height: 20px;
+  background-color: #cf009c;
+  border: 2px solid #cf009c;
   border-radius: 12px;
   color: white;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  transition: all 1s ease-in-out;
 }
 
 .btn-delete:hover {
-  // background-color: #00b7ff;
-  // border: 2px solid #00b7ff;
   transform: scale(1.15);
 }
 
 #input-background {
   background-color: #fff;
   opacity: 0.75;
-}
-
-button {
-  font-weight: medium;
 }

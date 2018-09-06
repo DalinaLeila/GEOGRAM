@@ -1,15 +1,9 @@
-{{!--
-<div class="flex-container-game">
-  <div id="form-container-game" class="fade-in">
-  </div>
-</div> --}}
-
-<div id="history-game">
+<div class="flex-game-code fade-in">
   <h1>History of played games:</h1>
   <br> {{#each finishedGames}}
   <div class="title-desc-section width-history">
     <a href="/player/progress/{{this.game._id}}">{{this.game.title}}</a>
+    {{/each}}
   </div>
-  {{/each}}
 
 </div>
