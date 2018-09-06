@@ -140,9 +140,6 @@ h4 {
   margin-bottom: 10px; }
 
 #form-container-game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
   min-height: 80vh;
   border-radius: 7px;
@@ -252,10 +249,7 @@ textarea {
     display: flex;
     flex-direction: column;
     color: white;
-    text-align: center; }
-  #email {
-    position: relative;
-    left: 3px; } }
+    text-align: center; } }
 
 #myVideo {
   position: fixed;
@@ -351,8 +345,9 @@ a.link-create {
   margin-right: 20px; }
 
 .flex-player-overview {
+  min-height: calc(100vh - 30px);
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   /* align-content: center; */
   align-items: center; }
