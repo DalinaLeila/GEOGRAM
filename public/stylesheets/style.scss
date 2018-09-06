@@ -102,6 +102,7 @@ h2,
 h3,
 h4 {
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
@@ -162,6 +163,9 @@ h4 {
 }
 
 #form-container-game {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
     min-height: 80vh;
     border-radius: 7px;
@@ -571,4 +575,38 @@ div.game-details-input {
 
 .header-margin {
     margin-bottom: 25px;
+}
+
+.flex-container-invite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    margin-top: 100px;
+}
+
+#form-container-invite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-delete {
+    width: 150px;
+    height: 40px;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: all 1s ease-in-out;
+}
+
+.btn-delete:hover {
+    // background-color: #00b7ff;
+    // border: 2px solid #00b7ff;
+    transform: scale(1.05);
 }
