@@ -39,7 +39,13 @@ body {
   color: darkblue; }
 
 .navigation li a {
-  color: black; }
+  color: #fff;
+  font-family: 'Montserrat', 'sans-serif';
+  transition: all 0.4s ease-in-out; }
+
+.navigation li a:hover {
+  opacity: 0.7;
+  background-color: #00b7ff; }
 
 .btn-login,
 .btn-signup {
