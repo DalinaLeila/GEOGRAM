@@ -524,4 +524,12 @@ div.game-details-input {
 .btn-delete:hover {
   transform: scale(1.15); }
 
+#input-background {
+  background-color: #fff;
+  opacity: 0.75; }
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: medium; }
+
 /*# sourceMappingURL=style.css.map */
