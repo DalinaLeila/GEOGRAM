@@ -9,20 +9,12 @@
 </style>
 
 <div class="flex-container-game">
-  <h2>Step 2 - Add task</h2>
 
   <form action="/creator/{{id}}/edit-task/{{task._id}}" method="post" id="form-container-game">
+    <h2>Step 2 - Add task</h2>
 
     <input type="text" name="title" value="{{task.title}}">
     <input type="text" id="location" name="location" value="{{task.location}}">
-
-    <select name="taskType" value="{{task.taskType}}">
-      <option value="text">Text</option>
-      <option value="photo">Photo</option>
-      <option value="video">Video</option>
-      <option value="audio">Audio</option>
-    </select>
-
 
     <textarea rows="4" cols="50" name="description">{{task.description}}</textarea>
 
