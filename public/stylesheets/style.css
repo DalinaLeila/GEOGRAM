@@ -28,6 +28,7 @@ body {
 #password {
   text-align: center;
   margin-left: 20px;
+  margin-right: 20px;
   width: 150px;
   height: 30px;
   background-color: transparent;
@@ -39,7 +40,13 @@ body {
   color: darkblue; }
 
 .navigation li a {
-  color: black; }
+  color: #fff;
+  font-family: 'Montserrat', 'sans-serif';
+  transition: all 0.4s ease-in-out; }
+
+.navigation li a:hover {
+  opacity: 0.7;
+  background-color: #00b7ff; }
 
 .btn-login,
 .btn-signup {
@@ -88,6 +95,7 @@ h2,
 h3,
 h4 {
   color: #fff;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold; }
 
 .flex-container {
@@ -105,10 +113,10 @@ h4 {
 .title {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 25px 0;
+  color: #cf009c;
   display: flex;
-  justify-content: center;
-  color: darkblue; }
+  justify-content: center; }
 
 #form-container {
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
@@ -140,6 +148,9 @@ h4 {
   margin-bottom: 10px; }
 
 #form-container-game {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
   min-height: 80vh;
   border-radius: 7px;
@@ -492,5 +503,41 @@ div.game-details-input {
 
 .header-margin {
   margin-bottom: 25px; }
+
+.flex-container-invite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+  margin-top: 100px; }
+
+#form-container-invite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.btn-delete {
+  width: 150px;
+  height: 40px;
+  background-color: #f95759;
+  border: 2px solid #f95759;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: all 1s ease-in-out; }
+
+.btn-delete:hover {
+  transform: scale(1.15); }
+
+#input-background {
+  background-color: #fff;
+  opacity: 0.75; }
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: medium; }
 
 /*# sourceMappingURL=style.css.map */

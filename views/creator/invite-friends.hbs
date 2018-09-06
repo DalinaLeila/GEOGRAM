@@ -1,9 +1,25 @@
-<h2>Step 3 - Invite Friends</h2>
-<h3>Invite your friends to play your game!</h3>
-<form action="/creator/send-email/{{id}}" method="post">
-  <label for="name">Your friends name:</label>
-  <input type="text" name="name" id="player-name">
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="player-email"> {{!-- <button id="btn-invite">Invite more</button> --}}
-  <button class="btn-next" type="submit">Send</button>
-</form>
+<style>
+  body {
+    background: url("/images/invite-friends.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
+
+<div class="flex-container-invite fade-in">
+  <h1 class="header-margin">Step 3 - Invite Friends</h1>
+  <h3 class="header-margin">Invite your friends to play your game!</h3>
+  <form id="form-container-invite" action="/creator/send-email/{{id}}" method="post">
+    {{!-- <label for="name">Your friends name:</label> --}}
+    <input class="input-style" id="input-background" placeholder="Your Friends Name" type="text" name="name" id="player-name">    {{!--
+    <label for="email">Email:</label>
+    --}}
+    <input class="input-style header-margin" id="input-background" placeholder="Your Email" type="email" name="email" id="player-email">    {{!--
+    <button id="btn-invite">Invite more
+    </button>
+    --}}
+    <button class="btn-next" type="submit">Send</button>
+  </form>
+</div>
