@@ -157,6 +157,9 @@ h4 {
 }
 
 #form-container-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
     min-height: 80vh;
     border-radius: 7px;
@@ -567,4 +570,8 @@ div.game-details-input {
 
 .signup-link {
     color: darkblue;
+}
+
+.header-margin {
+    margin-bottom: 25px;
 }
