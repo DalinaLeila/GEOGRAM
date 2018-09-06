@@ -21,6 +21,8 @@
 
     {{#if message}}
     <div class="error-message">{{message}}</div>
+    {{/if}} {{#each user.games}} {{#if message}}
+    <div class="error-message">{{message}}</div>
     {{/if}} {{#each user.games}}
 
     <a href="/player/game/{{this._id}}" class="animate-link">
@@ -29,11 +31,13 @@
         <div id="small-text">{{this.description}}</div>
       </button>
     </a>
+
+    <a href="/player/game/{{this._id}}/delete-game"><class="title-desc-section" button>Delete</button></a>
+
     {{/each}}
   </div>
-</div>
 
-<!--
+  <!--
 <h3>Suggested games</h3><br><br> {{#each game}}
 <h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
 {{/each}}

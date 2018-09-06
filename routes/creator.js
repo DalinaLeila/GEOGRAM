@@ -175,22 +175,16 @@ creator.post("/:id/edit-task/:taskId", (req, res, next) => {
 creator.get("/:id/delete-task/:taskId", (req, res, next) => {
   let id = req.params.id;
   let taskId = req.params.taskId;
-  console.log("game-1");
   Task.findByIdAndRemove(taskId).then(task => {
     Game.findById(id)
       .then(game => {
-        console.log("game0", game);
-
         game.tasks.splice(game.tasks.indexOf(taskId), 1);
         return game.save();
       })
       .then(game => {
-        console.log("game1", game);
-
         return Game.findById(game._id).populate("tasks"); // TODO manually populate? maybe?
       })
       .then(game => {
-        console.log("game 2", game);
         res.render("creator/tasks-overview", {
           id: id,
           tasks: game.tasks
@@ -202,21 +196,29 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
 
 //delete games
 
-creator.get("/:id/delete-game", (req, res, next) => {});
+creator.get("/:id/delete-game", (req, res, next) => {
+  let id = req.params.id
+  Game.findByIdAndRemove(id).then(game=>{
+    res.redirect("/creator/creator-overview")
+  })
+});
 
 creator.post("/:id/save-order", (req, res, next) => {
+  const id = req.params.id;
   for (let key in req.body) {
     let value = req.body[key];
     Task.findByIdAndUpdate(key, { order: value }).then(task => {
       {
-        res.render("creator/invite-friends");
+        res.render("creator/invite-friends", { id });
       }
     });
   }
 });
 
-creator.post("/send-email", (req, res, next) => {
-  let { email, subject, message, name } = req.body;
+creator.post("/send-email/:id", (req, res, next) => {
+  const { email, subject, message, name } = req.body;
+  const id = req.params.id;
+  console.log(id);
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -226,13 +228,15 @@ creator.post("/send-email", (req, res, next) => {
   });
   transporter
     .sendMail({
-      from: '"NAME" <geolocation.ironhack@gmail.com>',
+      from: '"GEOGRAM" <geolocation.ironhack@gmail.com>',
       to: email,
       subject: "GEOGAME INVITE ✔",
       text: `Hello ${name}!`,
-      html:
-        `<p>Hello <b>${name}!</b></p>` +
-        "<p>Click the link below to play!: <br><br><a> LINK </a></p>"
+      html: `<p>Hello <b>${name}!</b></p>
+      <br>
+      <p>You are invited to play a GEOGAME! <br><br>Copy this game code: <br>
+      <b>${id}</b><br>
+      and begin your journey!</p>`
     })
     .then(info => res.render("message", { email, subject, message, info }))
     .catch(error => console.log(error));
