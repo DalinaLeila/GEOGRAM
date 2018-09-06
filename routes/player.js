@@ -8,54 +8,80 @@ const { upload } = require("../utils/cloudinary");
 const fs = require("fs");
 
 player.get("/player-overview", (req, res) => {
-    User.findById(req.user._id)
-        .populate("games")
-        .then(user => {
-            res.render("player/player-overview", { user });
-        });
+
+    Game.find({"private": false}).then(
+        games => {
+            return games.slice(0, 3);
+        }
+    ).then(
+        games => {
+            console.log("SUGGESTED GAMES: ", games)
+            User.findById(req.user._id)
+                .populate("games")
+                .then(user => {
+                    res.render("player/player-overview", { user, games });
+                });
+        }
+    )
+
+
 });
 
 //search for games
 
 player.post("/find-game", (req, res) => {
     const { code } = req.body;
-    User.findById(req.user._id).then(user => {
-        if (user.games.indexOf(code) == -1) {
-            Game.findById(code)
-                .then(game => {
-                    User.findByIdAndUpdate(
-                        req.user._id,
-                        { $push: { games: game._id } },
-                        { new: true }
-                    ).then(user => {
+
+    Game.find({"private": false}).then(
+        games => {
+            return games.slice(0, 3);
+        }
+    ).then(games => {
+
+
+
+
+
+        User.findById(req.user._id).then(user => {
+            if (user.games.indexOf(code) == -1) {
+                Game.findById(code)
+                    .then(game => {
+                        User.findByIdAndUpdate(
+                            req.user._id,
+                            { $push: { games: game._id } },
+                            { new: true }
+                        ).then(user => {
+                            User.findById(req.user._id)
+                                .populate("games")
+                                .then(user => {
+                                    res.render("player/player-overview", { user, games });
+                                });
+                        });
+                    })
+                    .catch(err => {
                         User.findById(req.user._id)
                             .populate("games")
                             .then(user => {
-                                res.render("player/player-overview", { user });
+                                res.render("player/player-overview", {
+                                    user,
+                                    message: "Invalid game code!",
+                                    games
+                                });
                             });
                     });
-                })
-                .catch(err => {
-                    User.findById(req.user._id)
-                        .populate("games")
-                        .then(user => {
-                            res.render("player/player-overview", {
-                                user,
-                                message: "Invalid game code!"
-                            });
+            } else {
+                User.findById(req.user._id)
+                    .populate("games")
+                    .then(user => {
+                        res.render("player/player-overview", {
+                            user,
+                            message: "Game already displayed!",
+                            games
                         });
-                });
-        } else {
-            User.findById(req.user._id)
-                .populate("games")
-                .then(user => {
-                    res.render("player/player-overview", {
-                        user,
-                        message: "Game already displayed!"
                     });
-                });
-        }
-    });
+            }
+        });
+    })
 });
 
 player.get("/game/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
@@ -211,10 +237,10 @@ player.get("/game/:id/delete-game", (req, res, next) => {
         return user.save()
     }).then(user => {
         console.log("USER GAMES ", user)
-        
+
         res.redirect("/player/player-overview")
-        
-        
+
+
     })
 
 });

@@ -26,15 +26,22 @@
       <div>{{this.title}}</div>
       <div id="small-text">{{this.description}}</div>
     </button>
+     <a href="/player/game/{{this._id}}/delete-game"><class="title-desc-section" button>Delete</button></a>
+
   </a>
 
-  <a href="/player/game/{{this._id}}/delete-game"><class="title-desc-section" button>Delete</button></a>
-
   {{/each}}
-</div>
-<!--
-<h3>Suggested games</h3><br><br> {{#each game}}
-<h2> <a href="/player/game/{{this.id}}"> Title: {{this.title}}</a></h2>
+
+<h1>Suggested games</h1> {{#each games}}
+  <a href="/player/game/{{this._id}}" class="animate-link">
+    <button class="title-desc-section">
+      <div>{{this.title}}</div>
+      <div id="small-text">{{this.description}}</div>
+    </button>
+  </a>
 {{/each}}
 
--->
+</div>
+
+
+
