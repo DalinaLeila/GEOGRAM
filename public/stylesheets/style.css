@@ -4,7 +4,7 @@
   padding: 0; }
 
 body {
-  font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
+  font: 15px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif;
   margin: 0;
   background-color: #808080; }
 
@@ -33,6 +33,9 @@ body {
 
 ::placeholder {
   color: darkblue; }
+
+.navigation li a {
+  color: black; }
 
 .btn-login,
 .btn-signup {
@@ -235,7 +238,7 @@ textarea {
 
 @media only screen and (max-width: 768px) {
   body {
-    font: 10px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif; }
+    font: 10px 'Julius Sans One', sans-serif, Helvetica, Arial, sans-serif; }
   .logo {
     font-size: 0.7em;
     margin: 40px;
