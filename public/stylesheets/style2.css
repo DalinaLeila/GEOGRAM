@@ -14,15 +14,23 @@ html {
 body {
   font-size: 1.6rem;
   color: darkblue;
-  background-color: #808080;
+  background: url("/images/history.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.congrats-header {
+.image-history {
+  width: 40vh;
+}
+/* .congrats-header {
   font-family: "Montserrat";
   font-size: 2.5em;
   color: white;
   margin-top: 20px;
-}
+} */
+
 h1,
 h2 {
   font-weight: bold;
@@ -57,9 +65,6 @@ header h1 {
   header {
     height: 300px;
     line-height: 300px;
-  }
-  header h1 {
-    font-size: 2.4rem;
   }
 }
 
@@ -235,6 +240,9 @@ header h1 {
   .cd-timeline__read-more,
   .cd-timeline__date {
     font-size: 1.4rem;
+  }
+  .image-history {
+    width: 80vh;
   }
 }
 

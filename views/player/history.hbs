@@ -1,8 +1,8 @@
 <div class="flex-game-code fade-in">
-  <h1>History of played games:</h1>
+  <h1 class="history-title">History of played games:</h1>
   <br> {{#each finishedGames}}
-  <div class="title-desc-section width-history">
-    <a href="/player/progress/{{this.game._id}}">{{this.game.title}}</a>
+  <div>
+    <a class="larger" href="/player/progress/{{this.game._id}}">{{this.game.title}}</a>
     {{/each}}
   </div>
 

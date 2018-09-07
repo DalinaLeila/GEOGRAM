@@ -1,14 +1,22 @@
-<form action="/creator/{{game._id}}/edit-game-details" method="post">
-  <div class="flex-container-col">
-    <h2 class="">Edit Game Details</h2>
-    <label for="title">Game Title</label>
-    <input class="game-details-input" type="text" name="title" id="game-title" value="{{game.title}}">
-    <label for="description">Description:</label>
-    <input class="game-details-input" type="text" name="description" id="game-description" value="{{game.description}}">
-    <div>
-      <label for="private">Private?</label>
-      <input type="checkbox" name="private" id="game-privacy" value="{{game.private}}">
-    </div>
-    <button class="game-details-btn" type="submit">Submit</button>
-  </div>
-</form>
+<style>
+  body {
+    background: url("/images/creator1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
+
+
+<div class="flex-container-game">
+  <form action="/creator/{{game._id}}/edit-game-details" method="post" id="form-container-game">
+    <h1 class="title">Edit Game Details</h1>
+    {{!-- <label for="title">Game Title</label> --}}
+    <input type="text" class="input-style" name="title" id="game-title" value="{{game.title}}"><br>
+    <input type="text" class="input-style" name="description" id="game-description" value="{{game.description}}"><br>
+    <label for="private">Private?</label>
+    <input type="checkbox" name="private" id="private" value="{{game.private}}"><br>
+    <button class="btn-next" type="submit">Submit</button>
+  </form>
+</div>

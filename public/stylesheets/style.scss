@@ -7,7 +7,11 @@
 body {
   font: 15px "Julius Sans One", sans-serif, Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #808080;
+  background: url("/images/history.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .logo {
@@ -20,12 +24,26 @@ body {
 
 .logo-title {
   font-size: 6em;
+  color: white;
   margin-top: 20px;
   margin-bottom: 10px;
   color: white;
   font-family: "Montserrat", "Julius Sans One";
 }
 
+.larger {
+  font-size: 2em;
+  margin: 20px;
+  background-color: darkblue;
+  color: white;
+}
+
+.larger:hover {
+  font-size: 2em;
+  margin: 20px;
+  background-color: #00b7ff;
+  color: white;
+}
 #email {
   position: relative;
   left: 5px;
@@ -46,10 +64,6 @@ body {
 ::placeholder {
   color: darkblue;
 }
-
-// .navigation li a {
-//     color: black;
-// }
 
 .btn-login,
 .btn-signup {
@@ -89,6 +103,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: 1.2em;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -120,6 +135,7 @@ h4 {
   flex-direction: column;
   /* align-content: center; */
   align-items: center;
+  margin-top: 140px;
 }
 
 .title {
@@ -168,6 +184,16 @@ h4 {
   margin-bottom: 10px;
 }
 
+.btn-game-details:hover {
+  width: 150px;
+  height: 35px;
+  background-color: #cf009c;
+  border: 2px solid #cf009c;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
 #form-container-game {
   background-image: linear-gradient(
     to top,
@@ -609,14 +635,6 @@ div.game-details-input {
   margin-bottom: 25px;
 }
 
-.btn-delete {
-  background-color: #cf009c;
-  color: white;
-  padding: 5px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
 .flex-container-invite {
   display: flex;
   flex-direction: column;
@@ -649,4 +667,9 @@ div.game-details-input {
 #input-background {
   background-color: #fff;
   opacity: 0.75;
+}
+
+.history-title {
+  font-size: 2.8em;
+  font-family: "Montserrat";
 }

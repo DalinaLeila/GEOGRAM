@@ -11,24 +11,12 @@
 <div class="flex-container-game">
   <form action="/creator/{{this.id}}/add-task" method="post" id="form-container-game">
     <h2>Step 2 - Add task</h2>
-
-    <label for="title">Task Title:</label>
-    <input class="input-style" placeholder="Enter a title" type="text" name="title">
-    <label for="location">Location:</label>
-
-    <input class="input-style" type="text" id="location" name="location" placeholder="Enter a location">
-    <br>
-
-    <label for="description">Describe the task:</label>
-    <textarea name="description">
-Put your task description here.
-</textarea><br>
-    <div>
-      <button class="btn-next" type="submit">Save</button>
-      <button type="button" onclick="history.back()" class="btn-next">Cancel</button>
-    </div>
+    <input class="input-style" placeholder="Enter a title" type="text" name="title"><br>
+    <input class="input-style" type="text" id="location" name="location" placeholder="Enter a location"><br>
+    <textarea class="input-style" name="description" placeholder="Put your task description here."></textarea><br>
+    <button type="button" onclick="history.back()" class="btn-next">Cancel</button>
+    <button class="btn-next" type="submit">Save</button>
   </form>
-
 </div>
 
 
