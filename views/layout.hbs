@@ -18,17 +18,20 @@
 
 <body>
 
-
+{{#if user}}
   <nav class="navigation fade-in">
     <ul>
       <li><a href="/auth/logout">Logout</a></li>
+      <li><a href="/creator/creator-overview">Create</a></li>  
       <li><a href="/player/history">History</a></li>
-      <li><a href="/creator/creator-overview">Create</a></li>
       <li><a href="/player/player-overview">Play</a></li>
-      <li><a href="/auth/login">Login</a></li>
+      
+         
+      
     </ul>
-
   </nav>
+
+  {{/if}}
 
   {{{body}}}
   <script src='/javascripts/animate.js'></script>
