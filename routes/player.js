@@ -77,14 +77,15 @@ player.post('/find-game', (req, res) => {
 player.get('/game/:id', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
     const taskOrder = 1
+    const user = req.user
     Game.findById(id).then(game => {
-        res.render('player/game', { game, taskOrder })
+        res.render('player/game', { game, taskOrder, user })
     })
 })
 
 player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
     const id = req.params.id
-
+    const user = req.user
     let taskOrder = 2
 
     Game.findById(id)
@@ -104,6 +105,7 @@ player.get('/:id/player-task/1', ensureLogin.ensureLoggedIn(), (req, res) => {
                     game,
                     task,
                     taskOrder,
+                    user,
                     locationString: JSON.stringify(task.location),
                 })
            // } else {
@@ -116,7 +118,7 @@ player.post('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, r
     const id = req.params.id
     let taskOrder = req.params.taskOrder
     let dbUser
-
+    const user = req.user
     req.files.file.mv(`public/uploads/${req.files.file.name}`, function(err) {
         //moving the uploaded file with the specific name to the specified directory
         if (err) return res.status(500).send(err)
@@ -170,6 +172,7 @@ player.post('/:id/player-task/:taskOrder', ensureLogin.ensureLoggedIn(), (req, r
                     taskOrder++
                     res.render('player/player-task', {
                         game,
+                        user,
                         task,
                         taskOrder,
                         locationString: JSON.stringify(task.location),
@@ -193,11 +196,13 @@ player.get('/history', (req, res) => {
         .then(user => {
             const finishedGames = user.progress.filter(el => el.finished)
             res.render('player/history', {
-                finishedGames,
+                finishedGames, 
+                user
             })
         })
 })
 
+/** 
 player.post('/player-task/:id', (req, res, next) => {
     const id = req.params.id
     const { file } = req.files
@@ -223,6 +228,8 @@ player.post('/player-task/:id', (req, res, next) => {
     // res.redirect('/player/player-task/:id', { id })
     res.redirect('back')
 })
+*/
+
 
 player.get('/progress/:gameId', ensureLogin.ensureLoggedIn(), (req, res) => {
     const { gameId } = req.params
@@ -240,6 +247,7 @@ player.get('/progress/:gameId', ensureLogin.ensureLoggedIn(), (req, res) => {
             res.render('player/game-progress', {
                 game,
                 gameSteps,
+                user
             })
         })
 })
