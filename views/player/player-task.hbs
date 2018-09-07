@@ -6,9 +6,7 @@
 </style>
 
 <div class="flex-container-player-task">
-
   <h1>{{task.location}}</h1>
-
   <h2>{{task.title}}</h2>
   <h2>{{task.description}}</h2>
 </div>
@@ -17,33 +15,28 @@
   /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
   #map {
-    height: 50%;
+    height: 45%;
   }
 
   /* Optional: Makes the sample page fill the window. */
   html,
   body {
     height: 100%;
-    margin: 0;
-    padding: 0;
   }
 </style>
 </head>
 
-<body>
-  <div id="map"></div>
+<div id="map"></div>
+<div class="flex-container-player-task">
+  <form action="/player/{{game._id}}/player-task/{{taskOrder}}" method="POST" enctype="multipart/form-data">
+    <label class="fileContainer">
+      Choose file
+      <input type="file" name="file" id="upload" class="inputfile"> {{!-- <br> --}}
+    </label>
+    <button class="submit-btn" type="submit" value="save">Submit</button>
+  </form>
+</div>
 
 
-  <div class="flex-container-player-task">
-    <form action="/player/{{game._id}}/player-task/{{taskOrder}}" method="POST" enctype="multipart/form-data">
-      <label class="fileContainer">
-        Choose file
-        <input type="file" name="file" id="upload" class="inputfile"> {{!-- <br> --}}
-      </label>
-      <button class="submit-btn" type="submit" value="save">Submit</button>
-    </form>
-  </div>
-
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&callback=initMap">
-  </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUB1BdCnZ0WBG2AbnRjQ6WzeL_lI8geqw&callback=initMap">
+</script>

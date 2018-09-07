@@ -12,14 +12,8 @@
   <h1 class="header-margin">Step 3 - Invite Friends</h1>
   <h3 class="header-margin">Invite your friends to play your game!</h3>
   <form id="form-container-invite" action="/creator/send-email/{{id}}" method="post">
-    {{!-- <label for="name">Your friends name:</label> --}}
-    <input class="input-style" id="input-background" placeholder="Your Friends Name" type="text" name="name" id="player-name">    {{!--
-    <label for="email">Email:</label>
-    --}}
-    <input class="input-style header-margin" id="input-background" placeholder="Your Email" type="email" name="email" id="player-email">    {{!--
-    <button id="btn-invite">Invite more
-    </button>
-    --}}
+    <input class="input-style" id="input-background" placeholder="Your Friends Name" type="text" name="name" id="player-name">
+    <input class="input-style header-margin" id="input-background" placeholder="Your Email" type="email" name="email" id="player-email">
     <button class="btn-next" type="submit">Send</button>
   </form>
 </div>
