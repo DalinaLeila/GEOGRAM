@@ -12,7 +12,6 @@
 <div class="flex-container-game">
   <form action="/creator/{{game._id}}/edit-game-details" method="post" id="form-container-game">
     <h1 class="title">Edit Game Details</h1>
-    {{!-- <label for="title">Game Title</label> --}}
     <input type="text" class="input-style" name="title" id="game-title" value="{{game.title}}"><br>
     <input type="text" class="input-style" name="description" id="game-description" value="{{game.description}}"><br>
     <label for="private">Private?</label>

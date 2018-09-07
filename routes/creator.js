@@ -11,7 +11,7 @@ creator.get(
   "/creator-overview",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    const user = req.user
+    const user = req.user;
     let games = Game.find({ creator: req.user._id }).then(games => {
       res.render("creator/creator-overview", { games, user });
     });
@@ -19,13 +19,13 @@ creator.get(
 );
 
 creator.get("/game-details", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  const user = req.user
-  res.render("creator/game-details", {user});
+  const user = req.user;
+  res.render("creator/game-details", { user });
 });
 
 creator.post("/game-details", (req, res, next) => {
   const { title, description, private } = req.body;
-  const user = req.user
+  const user = req.user;
   const game = new Game({
     title: title,
     creator: req.user._id,
@@ -39,13 +39,12 @@ creator.post("/game-details", (req, res, next) => {
     });
 });
 
-
 //editing games
 creator.get(
   "/:id/edit-game-details",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    const user = req.user
+    const user = req.user;
     let id = req.params.id;
     Game.findById(id).then(game => {
       res.render("creator/edit-game-details", { game, user });
@@ -57,7 +56,7 @@ creator.post(
   "/:id/edit-game-details",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    const user = req.user
+    const user = req.user;
     let id = req.params.id;
     const { title, description, private } = req.body;
 
@@ -66,7 +65,7 @@ creator.post(
       { title: title, description: description, private: private },
       { new: true }
     ).then(game => {
-      res.redirect("/creator/" + id + "/tasks-overview", {user}) 
+      res.redirect("/creator/" + id + "/tasks-overview");
     });
   }
 );
@@ -75,13 +74,13 @@ creator.post(
 
 creator.get("/:id/add-task", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   let id = req.params.id;
-  const user = req.user
+  const user = req.user;
   res.render("creator/add-task", { id, user });
 });
 
 creator.post("/:id/add-task", (req, res, next) => {
   let id = req.params.id;
-  const user = req.user
+  const user = req.user;
   const { title, location, description } = req.body;
 
   const task = new Task({
@@ -115,7 +114,7 @@ creator.get(
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
     let id = req.params.id;
-    const user = req.user
+    const user = req.user;
     game = Game.findById(id)
       .populate("tasks")
       .then(game => {
@@ -136,7 +135,7 @@ creator.get(
     let id = req.params.id;
     let taskId = req.params.taskId;
     let taskObj;
-    const user = req.user
+    const user = req.user;
     Task.findById(taskId).then(task => {
       taskObj = task;
 
@@ -148,7 +147,7 @@ creator.get(
 creator.post("/:id/edit-task/:taskId", (req, res, next) => {
   let id = req.params.id;
   let taskId = req.params.taskId;
-  const user = req.user
+  const user = req.user;
   const { title, location, description } = req.body;
 
   Task.findByIdAndUpdate(taskId, {
@@ -171,7 +170,7 @@ creator.post("/:id/edit-task/:taskId", (req, res, next) => {
 creator.get("/:id/delete-task/:taskId", (req, res, next) => {
   let id = req.params.id;
   let taskId = req.params.taskId;
-  const user = req.user
+  const user = req.user;
   Task.findByIdAndRemove(taskId).then(task => {
     Game.findById(id)
       .then(game => {
@@ -195,15 +194,15 @@ creator.get("/:id/delete-task/:taskId", (req, res, next) => {
 //delete games
 
 creator.get("/:id/delete-game", (req, res, next) => {
-  let id = req.params.id
-  Game.findByIdAndRemove(id).then(game=>{
-    res.redirect("/creator/creator-overview")
-  })
+  let id = req.params.id;
+  Game.findByIdAndRemove(id).then(game => {
+    res.redirect("/creator/creator-overview");
+  });
 });
 
 creator.post("/:id/save-order", (req, res, next) => {
   const id = req.params.id;
-  const user = req.user
+  const user = req.user;
   for (let key in req.body) {
     let value = req.body[key];
     Task.findByIdAndUpdate(key, { order: value }).then(task => {
@@ -218,7 +217,7 @@ creator.post("/send-email/:id", (req, res, next) => {
   const { email, subject, message, name } = req.body;
   const id = req.params.id;
   console.log(id);
-  const user = req.user
+  const user = req.user;
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -238,7 +237,9 @@ creator.post("/send-email/:id", (req, res, next) => {
       <b>${id}</b><br>
       and begin your journey!</p>`
     })
-    .then(info => res.render("message", { email, subject, message, info, user }))
+    .then(info =>
+      res.render("message", { email, subject, message, info, user })
+    )
     .catch(error => console.log(error));
 });
 
